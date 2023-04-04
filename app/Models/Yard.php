@@ -19,6 +19,9 @@ class Yard extends Model
     public function tracks(){
         return $this->hasMany('App\Models\Track');
     }
+    public function railroadSwitches(){
+        return $this->hasMany('App\Models\RailroadSwitch');
+    }
 
      //Relacion inversa uno a muchos
     public function location(){

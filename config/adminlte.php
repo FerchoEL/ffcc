@@ -353,6 +353,12 @@ return [
             'active'        =>['menu/tracks*']            
         ],
         [
+            'text'        => 'Lista de herrajes',
+            'route'         => 'menu.railroadswitches.index',
+            'icon'        => 'fas fa-fw fa-route',
+            'active'        =>['menu/railroadswitches*']            
+        ],
+        [
             'text'        => 'Tipos de Carros',
             'route'         => 'menu.cartypes.index',
             'icon'        => 'fas fa-fw fa-subway',

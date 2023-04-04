@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
-use App\Models\Track;
 use App\Models\Yard;
+use App\Models\RailroadSwitch;
 use Illuminate\Http\Request;
 
-class TrackController extends Controller
+class RailroadSwitchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class TrackController extends Controller
      */
     public function index()
     {
-        $tracks = Track::all();
-        return view('menu.tracks.index',compact('tracks'));
+        $railroadSwitches = RailroadSwitch::all();
+        return view('menu.railroadswitches.index',compact('railroadSwitches'));
     }
 
     /**
@@ -27,9 +27,8 @@ class TrackController extends Controller
      */
     public function create()
     {
-        $yards=Yard::pluck('name','id')->toArray();
-       
-        return view('menu.tracks.create',compact('yards'));
+        $yards=Yard::pluck('name','id')->toArray();       
+        return view('menu.railroadswitches.create',compact('yards'));
     }
 
     /**
@@ -44,14 +43,15 @@ class TrackController extends Controller
             'name' => 'required',
             
         ]);
-        $track=Track::create([
+        $railroadSwitch=RailroadSwitch::create([
             'name' => $request->name,
+            'type_switch' => $request->type_switch,
             'yard_id'=>$request->yard_id,
             
             
         ]);
         
-        return redirect()->route('menu.tracks.index')->with('info','Se registró satifactoriamente');
+        return redirect()->route('menu.railroadswitches.index')->with('info','Se registró satifactoriamente');
     }
 
     /**
@@ -60,9 +60,9 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Track $track)
+    public function show(RailroadSwitch $railroadSwitches)
     {
-        return view('menu.tracks.show',compact('track'));
+        return view('menu.railroadswitches.show',compact('railroadswitches'));
     }
 
     /**
@@ -71,10 +71,10 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Track $track)
+    public function edit(RailroadSwitch $railroadswitch)
     {
         $yards=Yard::pluck('name','id')->toArray();       
-        return view('menu.tracks.edit',compact('track','yards'));
+        return view('menu.railroadswitches.edit',compact('railroadswitch','yards')); 
     }
 
     /**
@@ -84,18 +84,20 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Track $track)
+    public function update(Request $request, RailroadSwitch $railroadswitch)
     {
         $request->validate([
             'name' => 'required',
+            'type_switch' => 'required',
             'yard_id' => 'required'            
         ]);    
-         $track->update([
+         $railroadswitch->update([
             'name' => $request->name, 
+            'type_switch' => $request->type_switch,
             'yard_id'=>$request->yard_id  
         ]);
     
-      return redirect()->route('menu.tracks.edit',$track)->with('info','se actualizó satifactoriamente');
+      return redirect()->route('menu.railroadswitches.edit',$railroadswitch)->with('info','se actualizó satifactoriamente');
     }
 
     /**
