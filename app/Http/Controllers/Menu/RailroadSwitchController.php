@@ -50,7 +50,7 @@ class RailroadSwitchController extends Controller
             
             
         ]);
-        //comentario de prueba
+        //comentario de prueba local
         return redirect()->route('menu.railroadswitches.index')->with('info','Se registró satifactoriamente');
     }
 
