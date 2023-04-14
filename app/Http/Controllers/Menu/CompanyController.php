@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Company;
 use Illuminate\Http\Request;
 
+
 class CompanyController extends Controller
 {
     /**
@@ -13,9 +14,10 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $companies = Company::all();
+        $companies = Company::paginate(7);
         return view('menu.companies.index',compact('companies'));
     }
 
@@ -46,7 +48,7 @@ class CompanyController extends Controller
             'RFC' => $request->name
         ]);
 
-        
+
         return redirect()->route('menu.companies.index')->with('info','Se registró la empresa satifactoriamente');
     }
 
@@ -89,7 +91,7 @@ class CompanyController extends Controller
             'name' => $request->name,
             'RFC' => $request->RFC
         ]);
-        
+
         return redirect()->route('menu.companies.edit',$company)->with('info','se actualizó satifactoriamente');
     }
 

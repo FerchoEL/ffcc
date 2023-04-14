@@ -17,7 +17,7 @@ class YardController extends Controller
      */
     public function index()
     {
-        $yards = Yard::all();
+        $yards = Yard::withCount('tracks')->get();
         return view('menu.yards.index',compact('yards'));
     }
 
@@ -27,7 +27,7 @@ class YardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $locations=Location::pluck('name','id')->toArray();
         $companies=Company::pluck('name','id')->toArray();
         return view('menu.yards.create',compact('locations','companies'));
@@ -43,15 +43,15 @@ class YardController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+
         ]);
         $yard=Yard::create([
             'name' => $request->name,
             'location_id'=>$request->location_id,
-            'company_id'=>$request->company_id  
-            
+            'company_id'=>$request->company_id
+
         ]);
-        
+
         return redirect()->route('menu.yards.index')->with('info','Se registró la empresa satifactoriamente');
     }
 
@@ -63,7 +63,7 @@ class YardController extends Controller
      */
     public function show(Yard $yard)
     {
-        
+
         return view('menu.yards.show',compact('yard'));
     }
 
@@ -74,7 +74,7 @@ class YardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Yard $yard)
-    {   
+    {
         $locations=Location::pluck('name','id')->toArray();
         $companies=Company::pluck('name','id')->toArray();
         return view('menu.yards.edit',compact('yard','locations','companies'));
@@ -91,14 +91,14 @@ class YardController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'location_id' => 'required'            
-        ]);    
-         $yard->update([
-            'name' => $request->name, 
-            'location_id'=>$request->location_id,
-            'company_id'=>$request->company_id   
+            'location_id' => 'required'
         ]);
-    
+         $yard->update([
+            'name' => $request->name,
+            'location_id'=>$request->location_id,
+            'company_id'=>$request->company_id
+        ]);
+
       return redirect()->route('menu.yards.edit',$yard)->with('info','se actualizó satifactoriamente');
     }
 

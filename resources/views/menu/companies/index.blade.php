@@ -20,27 +20,34 @@
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th ></th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
                 </thead>
                 <tbody>
-                    @forelse ($companies as $company)
+                @if(!empty($companies) && $companies->count())
+                    @foreach ($companies as $company)
                         <tr>
                             <td>{{$company->id}}</td>
                             <td>{{$company->name}}</td>
-                            <td width='10px'><a class="btn btn-secondary" href={{route('menu.companies.edit',$company)}}>Editar</a></td>
-                            
+                            <td width='10px'><a class="btn btn-secondary"
+                                                href={{route('menu.companies.edit',$company)}}>Editar</a></td>
+
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="3">No hay ningún empresa registrado</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="3">No hay ningún empresa registrado</td>
+                    </tr>
+                @endif
                 </tbody>
             </table>
+            {!! ! $companies->links() !!}
+        </div>
+        <div class="card-footer table-responsive">
+            {{$companies->links()}}
         </div>
     </div>
 @stop

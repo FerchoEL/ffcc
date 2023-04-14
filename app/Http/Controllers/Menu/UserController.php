@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -26,7 +27,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('menu.users.create');
+        $companies= Company::pluck('name', 'id')->toArray();
+        $route= 'menu.users.create';
+        return view('menu.users.create', compact('companies','route'));
     }
 
     /**
@@ -37,7 +40,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+        $User=User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password'=>bcrypt($request->password),
+            'company_id'=>$request->company_id,
+
+
+        ]);
+
+        return redirect()->route('menu.users.index')->with('info','Se registró satifactoriamente');
     }
 
     /**
@@ -60,7 +78,9 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles=Role::all();
-        return view('menu.users.edit',compact('user','roles'));
+        $companies= Company::pluck('name', 'id')->toArray();
+        $route= 'menu.users.edit';
+        return view('menu.users.edit',compact('user','companies', 'route'));
     }
 
     /**
@@ -73,7 +93,18 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);
-        return redirect()->route('menu.users.edit', $user);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'company_id' => 'required'
+        ]);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'company_id'=>$request->company_id
+
+        ]);
+        return redirect()->route('menu.users.index', $user);
     }
 
     /**
@@ -84,6 +115,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('menu.users.index')->with('info','Se eliminó el registro satifactoriamente');
     }
 }

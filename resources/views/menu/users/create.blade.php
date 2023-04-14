@@ -7,7 +7,16 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div class="card">
+        <div class="card-body">
+            {!! Form::open(['route'=> 'menu.users.store']) !!}
+            @include('menu.users.partials.form')
+
+            {!! Form::submit('Crear usuario', ['class' => 'btn btn-primary mt-2']) !!}
+
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('css')
