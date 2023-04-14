@@ -17,7 +17,7 @@ class MenuUsers extends Component
     {
         $users=User::where('name', 'LIKE', '%'.$this->search. '%')
             ->orwhere('email', 'LIKE', '%'.$this->search. '%')
-            ->paginate(8);
+            ->paginate();
         return view('livewire.menu-users',compact('users'));
     }
 

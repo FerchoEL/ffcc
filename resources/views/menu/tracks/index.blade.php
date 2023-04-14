@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-    <h1>Lista de patios</h1>
+    <h1>Lista de vías</h1>
 @stop
 
 @section('content')
@@ -44,7 +44,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No hay ningún rol registrado</td>
+                            <td colspan="4">No hay ningúna vía registrada</td>
                         </tr>
                     @endforelse
                 </tbody>

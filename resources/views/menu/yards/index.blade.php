@@ -23,6 +23,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Ubicación</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -31,6 +32,7 @@
                         <tr>
                             <td>{{$yard->id}}</td>
                             <td>{{$yard->name}}</td>
+                            <td>{{$yard->locattion}}</td>
                             <td width='10px'><a class="btn btn-secondary" href={{route('menu.yards.edit',$yard)}}>Editar</a></td>
                             <td width='10px'>
                                 <form action="{{route('menu.yards.destroy',$yard)}}" method="post">

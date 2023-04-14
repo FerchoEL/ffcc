@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\Location;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 
 class CompanyController extends Controller
 {
+    use WithPagination;
+    protected $paginationTheme="bootstrap";
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::all();
+        $companies = Company::paginate();
         return view('menu.companies.index',compact('companies'));
     }
 
@@ -26,7 +30,9 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('menu.companies.create');
+        $locations=Location::pluck('name','id')->toArray();
+        
+        return view('menu.companies.create',compact('locations'));
     }
 
     /**
@@ -39,11 +45,13 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'RFC'=> 'required'
+            'RFC'=> 'required',
+            
         ]);
         $company=Company::create([
             'name' => $request->name,
-            'RFC' => $request->name
+            'RFC' => $request->RFC,
+            'location_id'=>$request->location_id,
         ]);
 
         
@@ -69,7 +77,8 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('menu.companies.edit',compact('company'));
+        $locations=Location::pluck('name','id')->toArray();
+        return view('menu.companies.edit',compact('company','locations'));
     }
 
     /**
@@ -83,11 +92,13 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'RFC'=> 'required'
+            'RFC'=> 'required',
+            'location_id' => 'required'  
         ]);
         $company->update([
             'name' => $request->name,
-            'RFC' => $request->RFC
+            'RFC' => $request->RFC,
+            'location_id'=>$request->location_id
         ]);
         
         return redirect()->route('menu.companies.edit',$company)->with('info','se actualizó satifactoriamente');
@@ -101,6 +112,7 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $company->delete();
+        return redirect()->route('menu.companies.index')->with('info','La empresa se eliminó con exito');
     }
 }

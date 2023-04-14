@@ -311,17 +311,18 @@ return [
             
         ],
         [
-            'text'        => 'Lista de roles',
-            'route'         => 'menu.roles.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
-            'active'        =>['menu/roles*']            
-        ],
-        [
             'text'        => 'Usuarios',
             'route'         => 'menu.users.index',
             'icon'        => 'fas fa-fw fa-users',
             'active'        =>['menu/users*']            
         ],
+        [
+            'text'        => 'Lista de roles',
+            'route'         => 'menu.roles.index',
+            'icon'        => 'fas fa-fw fa-users-cog',
+            'active'        =>['menu/roles*']            
+        ],
+        
         [
             'text'        => 'Empresas',
             'route'         => 'menu.companies.index',
@@ -337,27 +338,30 @@ return [
         [
             'text'        => 'Patios',
             'route'         => 'menu.yards.index',
-            'icon'        => 'fas fa-fw fa-cogs',
+            'icon'        => 'fas fa-fw fa-square',
             'active'        =>['menu/yards*']            
         ],
+        /*
         [
             'text'        => 'Listas de correo',
             'route'         => 'menu.emails.index',
             'icon'        => 'fas fa-fw fa-envelope-open',
             'active'        =>['menu/emails*']            
         ],
+        */
         [
             'text'        => 'Lista de vias',
             'route'         => 'menu.tracks.index',
-            'icon'        => 'fas fa-fw fa-route',
+            'icon'        => 'fas fa-fw fa-road',
             'active'        =>['menu/tracks*']            
         ],
         [
             'text'        => 'Lista de herrajes',
             'route'         => 'menu.railroadswitches.index',
-            'icon'        => 'fas fa-fw fa-route',
+            'icon'        => 'fas fa-fw fa-random',
             'active'        =>['menu/railroadswitches*']            
         ],
+        /*
         [
             'text'        => 'Tipos de Carros',
             'route'         => 'menu.cartypes.index',
@@ -389,7 +393,7 @@ return [
                 ],
             ]
         ],
-        
+        */
         ['header' => 'account_settings'],
         [
             'text' => 'profileee',
@@ -401,6 +405,7 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -439,6 +444,7 @@ return [
                 ],
             ],
         ],
+        */
         ['header' => 'labels'],
         [
             'text'       => 'important',
