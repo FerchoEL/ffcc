@@ -18,11 +18,12 @@
             <a href="{{route('menu.locations.create')}}" class="btn btn-primary">Registar ubicación</a>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <table style="text-align: center" class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>No. Patios</th>
                         <th ></th>
                     </tr>
                 </thead>
@@ -31,6 +32,7 @@
                         <tr>
                             <td>{{$location->id}}</td>
                             <td>{{$location->name}}</td>
+                            <td>{{$location->yards_count}}</td>
                             <td width='10px'><a class="btn btn-secondary" href={{route('menu.locations.edit',$location)}}>Editar</a></td>
                             <td width='10px'>
                                 <form action="{{route('menu.locations.destroy',$location)}}" method="post">

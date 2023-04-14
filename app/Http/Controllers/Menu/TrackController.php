@@ -28,7 +28,7 @@ class TrackController extends Controller
     public function create()
     {
         $yards=Yard::pluck('name','id')->toArray();
-       
+
         return view('menu.tracks.create',compact('yards'));
     }
 
@@ -42,15 +42,15 @@ class TrackController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+
         ]);
         $track=Track::create([
             'name' => $request->name,
             'yard_id'=>$request->yard_id,
-            
-            
+
+
         ]);
-        
+
         return redirect()->route('menu.tracks.index')->with('info','Se registró satifactoriamente');
     }
 
@@ -73,7 +73,7 @@ class TrackController extends Controller
      */
     public function edit(Track $track)
     {
-        $yards=Yard::pluck('name','id')->toArray();       
+        $yards=Yard::pluck('name','id')->toArray();
         return view('menu.tracks.edit',compact('track','yards'));
     }
 
@@ -88,13 +88,13 @@ class TrackController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'yard_id' => 'required'            
-        ]);    
-         $track->update([
-            'name' => $request->name, 
-            'yard_id'=>$request->yard_id  
+            'yard_id' => 'required'
         ]);
-    
+         $track->update([
+            'name' => $request->name,
+            'yard_id'=>$request->yard_id
+        ]);
+
       return redirect()->route('menu.tracks.edit',$track)->with('info','se actualizó satifactoriamente');
     }
 

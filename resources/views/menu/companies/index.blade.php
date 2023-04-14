@@ -51,10 +51,8 @@
                     @endforelse
                 </tbody>
             </table>
+            
         </div>
-    </div>
-    <div class="card-footer table-responsive">
-        {{$companies->links()}}
     </div>
 @stop
 

@@ -15,7 +15,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::all();
+        $locations = Location::withCount('yards')->get();
+
         return view('menu.locations.index',compact('locations'));
     }
 
@@ -39,14 +40,14 @@ class LocationController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+
         ]);
         $location=Location::create([
             'name' => $request->name,
-            
+
         ]);
 
-        
+
         return redirect()->route('menu.locations.index')->with('info','Se registró la empresa satifactoriamente');
     }
 
@@ -83,13 +84,13 @@ class LocationController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+
         ]);
         $location->update([
             'name' => $request->name,
-            
+
         ]);
-        
+
         return redirect()->route('menu.locations.edit',$location)->with('info','se actualizó satifactoriamente');
     }
 

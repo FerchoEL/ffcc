@@ -8,6 +8,7 @@ use App\Models\Location;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
 
+
 class CompanyController extends Controller
 {
     use WithPagination;
@@ -17,9 +18,12 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $companies = Company::paginate();
+
+        $companies = Company::all();
+
         return view('menu.companies.index',compact('companies'));
     }
 
@@ -31,7 +35,7 @@ class CompanyController extends Controller
     public function create()
     {
         $locations=Location::pluck('name','id')->toArray();
-        
+
         return view('menu.companies.create',compact('locations'));
     }
 
@@ -46,7 +50,7 @@ class CompanyController extends Controller
         $request->validate([
             'name' => 'required',
             'RFC'=> 'required',
-            
+
         ]);
         $company=Company::create([
             'name' => $request->name,
@@ -54,7 +58,7 @@ class CompanyController extends Controller
             'location_id'=>$request->location_id,
         ]);
 
-        
+
         return redirect()->route('menu.companies.index')->with('info','Se registró la empresa satifactoriamente');
     }
 
@@ -93,14 +97,14 @@ class CompanyController extends Controller
         $request->validate([
             'name' => 'required',
             'RFC'=> 'required',
-            'location_id' => 'required'  
+            'location_id' => 'required'
         ]);
         $company->update([
             'name' => $request->name,
             'RFC' => $request->RFC,
             'location_id'=>$request->location_id
         ]);
-        
+
         return redirect()->route('menu.companies.edit',$company)->with('info','se actualizó satifactoriamente');
     }
 

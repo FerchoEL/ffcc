@@ -29,6 +29,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'company_id',
+        'hola'
     ];
 
     /**
@@ -61,12 +63,13 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-   
 
-    //RElacion muchos a muchos
-    public function companies(){
-        return $this->belongsToMany('App\Models\Company');
+
+    //RElacion uno a muchos
+    public function company(){
+        return $this->belongsTo('App\Models\Company');
     }
+    //RElacion muchos a muchos
     public function yards(){
         return $this->belongsToMany('App\Models\Yard');
     }
