@@ -27,9 +27,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles=Role::all();
         $companies= Company::pluck('name', 'id')->toArray();
         $route= 'menu.users.create';
-        return view('menu.users.create', compact('companies','route'));
+        return view('menu.users.create', compact('companies','route', 'roles'));
     }
 
     /**
@@ -80,7 +81,7 @@ class UserController extends Controller
         $roles=Role::all();
         $companies= Company::pluck('name', 'id')->toArray();
         $route= 'menu.users.edit';
-        return view('menu.users.edit',compact('user','companies', 'route'));
+        return view('menu.users.edit',compact('user','companies', 'route', 'roles'));
     }
 
     /**
@@ -93,6 +94,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -104,7 +106,7 @@ class UserController extends Controller
             'company_id'=>$request->company_id
 
         ]);
-        return redirect()->route('menu.users.index', $user);
+        return redirect()->route('menu.users.edit', $user)->with('info','Se asignó el rol correctamente');
     }
 
     /**

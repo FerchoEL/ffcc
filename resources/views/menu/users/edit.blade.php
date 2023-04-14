@@ -16,9 +16,7 @@
         <div class="card-body">
             {!! Form::model($user,['route'=> ['menu.users.update',$user], 'method' => 'put']) !!}
             @include('menu.users.partials.form')
-
             {!! Form::submit('Actualizar usuario', ['class' => 'btn btn-primary mt-2']) !!}
-
             {!! Form::close() !!}
         </div>
     </div>

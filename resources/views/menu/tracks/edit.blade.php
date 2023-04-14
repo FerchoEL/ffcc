@@ -3,7 +3,7 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Editar patio</h1>
+    <h1>Editar vía</h1>
 @stop
 
 @section('content')
@@ -17,7 +17,7 @@
             {!! Form::model($track,['route'=> ['menu.tracks.update',$track], 'method' => 'put']) !!}
                 @include('menu.tracks.partials.form')
                 
-                {!! Form::submit('Actualizar patio', ['class' => 'btn btn-primary mt-2']) !!}
+                {!! Form::submit('Actualizar vía', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

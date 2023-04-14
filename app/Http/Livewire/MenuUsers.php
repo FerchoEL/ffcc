@@ -20,6 +20,7 @@ class MenuUsers extends Component
             ->orwhere('email', 'LIKE', '%'.$this->search. '%')
             ->orwhere('company_id', 'LIKE', '%'.$this->search. '%')
             ->paginate(8);
+
         return view('livewire.menu-users',compact('users'));
     }
 

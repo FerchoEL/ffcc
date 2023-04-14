@@ -108,8 +108,9 @@ class YardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Yard $yard)
     {
-        //
+        $yard->delete();
+        return redirect()->route('menu.yards.index')->with('info','La empresa se eliminó con exito');
     }
 }

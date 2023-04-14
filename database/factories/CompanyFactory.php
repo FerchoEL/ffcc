@@ -18,7 +18,7 @@ class CompanyFactory extends Factory
     {
         return [
             'name' => $this->faker->unique->company(),
-            'RFC'=>$this->faker->regexify('[A-Z]{3}[0-9]{6}[A-Z]{2}[0-9]')
+            'RFC'=>$this->faker->regexify('[A-Z]{3}[0-9]{6}[A-Z]{2}[0-9]'),
         ];
     }
 }

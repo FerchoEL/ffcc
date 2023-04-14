@@ -22,8 +22,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Type</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
                         <th>Patio</th>
                         <th colspan="2"></th>
                     </tr>
@@ -46,7 +46,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No hay ningún rol registrado</td>
+                            <td colspan="4">No hay ningún herraje registrado</td>
                         </tr>
                     @endforelse
                 </tbody>

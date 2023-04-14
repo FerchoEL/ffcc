@@ -20,34 +20,38 @@
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>RFC</th>
+                        <th>Ubicación</th>
+                        <th colspan="2"></th>
+                    </tr>
                 </thead>
                 <tbody>
-                @if(!empty($companies) && $companies->count())
-                    @foreach ($companies as $company)
+                    @forelse ($companies as $company)
                         <tr>
                             <td>{{$company->id}}</td>
                             <td>{{$company->name}}</td>
-                            <td width='10px'><a class="btn btn-secondary"
-                                                href={{route('menu.companies.edit',$company)}}>Editar</a></td>
-
+                            <td>{{$company->RFC}}</td>
+                            <td>{{$company->location->name}}</td>
+                            <td width='10px'><a class="btn btn-secondary" href={{route('menu.companies.edit',$company)}}>Editar</a></td>
+                            <td width='10px'>
+                                <form action="{{route('menu.companies.destroy',$company)}}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
-                    @endforeach
-                @else
-                    <tr>
-                        <td colspan="3">No hay ningún empresa registrado</td>
-                    </tr>
-                @endif
+                    @empty
+                        <tr>
+                            <td colspan="3">No hay ningúna empresa registrada</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
-            {!! ! $companies->links() !!}
-        </div>
-        <div class="card-footer table-responsive">
-            {{$companies->links()}}
+            
         </div>
     </div>
 @stop
