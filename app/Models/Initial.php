@@ -11,7 +11,7 @@ class Initial extends Model
     protected $guarded = ['id'];
 
     //Relacion inversa uno a uno
-    public function carInspection(){
+    public function carInspection(){ 
         return $this->belongsTo('App\Models\CarInspection');
     }
 }
