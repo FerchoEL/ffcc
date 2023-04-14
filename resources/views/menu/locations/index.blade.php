@@ -32,7 +32,13 @@
                             <td>{{$location->id}}</td>
                             <td>{{$location->name}}</td>
                             <td width='10px'><a class="btn btn-secondary" href={{route('menu.locations.edit',$location)}}>Editar</a></td>
-                            
+                            <td width='10px'>
+                                <form action="{{route('menu.locations.destroy',$location)}}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                     @empty
                         <tr>

@@ -18,6 +18,17 @@
         </span>
     @enderror
 </div>
+<div class="form-group">
+    <strong>Ubicación</strong>
+    @error('locations')
+            <small class="text-danger">
+                <strong>{{$message}}</strong>
+            </small>
+    @enderror
+
+    {!! Form::select('location_id', $locations, null, ['class' => 'form-control']) !!}
+</div>
+
 
 {{--<strong>Permisos</strong>
 @error('permissions')

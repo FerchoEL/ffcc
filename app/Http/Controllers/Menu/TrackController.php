@@ -104,8 +104,9 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Track $track)
     {
-        //
+        $track->delete();
+        return redirect()->route('menu.tracks.index')->with('info','La vía se eliminó con exito');
     }
 }
