@@ -341,6 +341,8 @@ return [
             'icon'        => 'fas fa-fw fa-square',
             'active'        =>['menu/yards*']            
         ],
+
+        
         /*
         [
             'text'        => 'Listas de correo',
@@ -361,7 +363,41 @@ return [
             'icon'        => 'fas fa-fw fa-random',
             'active'        =>['menu/railroadswitches*']            
         ],
-        /*
+        [
+            'text'    => 'Inspecciones',
+            'icon'    => 'fas fa-paste',
+            'submenu' => [
+                [
+                    'text' => 'level_one',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'level_one',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+
+/*  
+        
+        [
+            'text'    => 'Inspecciones',
+            'icon'    => 'fas fa-paste',
+            'submenu' => [
+                [
+                    'text'        => 'Realizar inspeccion',
+                    
+                    'icon'        => 'fas fa-tasks',
+                    'active'      =>['menu/cartypes*']
+                ],
+                [
+                    'text'        => 'Historial de inspecciones',
+                    
+                    'icon'        => 'fas fa-file-alt',
+                    'active'      =>['menu/cartypes*']
+                ],
+            ],
+        ],
         [
             'text'        => 'Tipos de Carros',
             'route'         => 'menu.cartypes.index',

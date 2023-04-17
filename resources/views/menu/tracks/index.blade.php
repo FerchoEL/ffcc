@@ -49,7 +49,11 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="mt-4">
+                {{$tracks->links()}}
+            </div>
         </div>
+        
     </div>
 @stop
 
