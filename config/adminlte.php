@@ -335,27 +335,30 @@ return [
             'icon'        => 'fas fa-fw fa-globe-americas',
             'active'        =>['menu/locations*']            
         ],
+        ['header' => 'LISTAS'],
         [
-            'text'        => 'Patios',
+            'text'        => 'Lista de patios',
             'route'         => 'menu.yards.index',
             'icon'        => 'fas fa-fw fa-square',
             'active'        =>['menu/yards*']            
         ],
-
-        
         /*
         [
             'text'        => 'Listas de correo',
             'route'         => 'menu.emails.index',
             'icon'        => 'fas fa-fw fa-envelope-open',
             'active'        =>['menu/emails*']            
-        ],
-        */
+        ],*/
         [
             'text'        => 'Lista de vias',
             'route'         => 'menu.tracks.index',
             'icon'        => 'fas fa-fw fa-road',
-            'active'        =>['menu/tracks*']            
+            'active'        =>['menu/tracks*']             
+        ],
+        [
+            'text'        => 'Lista de tramos',
+            'url'        => '#',
+            'icon'        => 'fas fa-fw fa-route',
         ],
         [
             'text'        => 'Lista de herrajes',
@@ -363,41 +366,7 @@ return [
             'icon'        => 'fas fa-fw fa-random',
             'active'        =>['menu/railroadswitches*']            
         ],
-        [
-            'text'    => 'Inspecciones',
-            'icon'    => 'fas fa-paste',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-
-/*  
-        
-        [
-            'text'    => 'Inspecciones',
-            'icon'    => 'fas fa-paste',
-            'submenu' => [
-                [
-                    'text'        => 'Realizar inspeccion',
-                    
-                    'icon'        => 'fas fa-tasks',
-                    'active'      =>['menu/cartypes*']
-                ],
-                [
-                    'text'        => 'Historial de inspecciones',
-                    
-                    'icon'        => 'fas fa-file-alt',
-                    'active'      =>['menu/cartypes*']
-                ],
-            ],
-        ],
+        /*
         [
             'text'        => 'Tipos de Carros',
             'route'         => 'menu.cartypes.index',
@@ -430,17 +399,7 @@ return [
             ]
         ],
         */
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profileee',
-            'url'  => 'menu/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        
         /*
         [
             'text'    => 'multilevel',

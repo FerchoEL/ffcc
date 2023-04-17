@@ -9,7 +9,7 @@
             <input wire:keydown="limpiar_page()" wire:model="search" class="form-control w-100" type="text" placeholder="Escriba un nombre">
         </div>
         <div class="class-header">
-            <a class="btn btn-primary ml-4" href="{{route('menu.users.create')}}">Crear usuario</a>
+            <a href="{{route('menu.users.create')}}" class="btn btn-primary ml-4 mt-2" >Crear usuario</a>
         </div>
         @if ($users->count())
             <div class="card-body table-responsive">
@@ -19,7 +19,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Email</th>
-                            <th>Compañia</th>
+                            <th>Empresa</th>
                             <th colspan="2"></th>
                         </tr>
                     </thead>
