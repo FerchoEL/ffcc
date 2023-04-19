@@ -41,7 +41,7 @@
     {!! Form::select('company_id', $companies, null, ['class' => 'form-control mt-2']) !!}
 </div>
 <div class="form-group">
-    <strong>Roles</strong>
+    <h3>Lista de Roles</h3>
     @foreach ($roles as $role)
         <div>
             <label>

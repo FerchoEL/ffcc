@@ -302,73 +302,75 @@ return [
         ],
 
         // Sidebar items:
-       
-        
+
+
         [
             'text'        => 'Dashboard',
             'route'         => 'menu.home',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
-            
+
         ],
         [
             'text'        => 'Usuarios',
             'route'         => 'menu.users.index',
             'icon'        => 'fas fa-fw fa-users',
-            'active'        =>['menu/users*']            
+            'active'        =>['menu/users*']
         ],
         [
             'text'        => 'Lista de roles',
             'route'         => 'menu.roles.index',
             'icon'        => 'fas fa-fw fa-users-cog',
-            'active'        =>['menu/roles*']            
+            'active'        =>['menu/roles*']
         ],
-        
+
         [
             'text'        => 'Empresas',
             'route'         => 'menu.companies.index',
             'icon'        => 'fas fa-fw fa-city',
-            'active'        =>['menu/companies*']            
+            'active'        =>['menu/companies*']
         ],
         [
             'text'        => 'Ubicaciones',
             'route'         => 'menu.locations.index',
             'icon'        => 'fas fa-fw fa-globe-americas',
-            'active'        =>['menu/locations*']            
+            'active'        =>['menu/locations*']
         ],
         ['header' => 'LISTAS'],
         [
             'text'        => 'Lista de patios',
             'route'         => 'menu.yards.index',
             'icon'        => 'fas fa-fw fa-square',
-            'active'        =>['menu/yards*'] 
-                       
+            'active'        =>['menu/yards*']
+
         ],
         [
             'text'        => 'Lista de vias',
             'route'         => 'menu.tracks.index',
             'icon'        => 'fas fa-fw fa-road',
-            'active'        =>['menu/tracks*']             
+//            'active'        =>['menu/tracks*']
         ],
         [
             'text'        => 'Lista de tramos',
-            'url'        => '#',
-            'icon'        => 'fas fa-fw fa-route',
+            'route'         => 'menu.tracksections.index',
+            'icon'        => 'fas fa-fw fa-square',
+            'active'        =>['menu/tracksections*']
         ],
         [
             'text'        => 'Lista de herrajes',
             'route'         => 'menu.railroadswitches.index',
             'icon'        => 'fas fa-fw fa-random',
-            'active'        =>['menu/railroadswitches*']            
+            'active'        =>['menu/railroadswitches*']
         ],
         [
             'text'        => 'Lista de inspecciones',
-            'url'        => '#',
-            'icon'        => 'fas fa-fw fa-sticky-note',
+            'route'         => 'menu.inspections.index',
+            'icon'        => 'fas fa-fw fa-random',
+
         ],
         ['header' => 'INSPECCIÓN',],
         [
             'text'        => 'Realizar una inspección',
-            'url'        => '#',
+            'route'         => 'menu.inspections.create',
             'icon'        => 'fas fa-fw fa-user-secret',
         ],
         /*
@@ -381,7 +383,7 @@ return [
             'text'        => 'Listas de correo',
             'route'         => 'menu.emails.index',
             'icon'        => 'fas fa-fw fa-envelope-open',
-            'active'        =>['menu/emails*']            
+            'active'        =>['menu/emails*']
         ],
         */
 
@@ -392,30 +394,30 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'active'        =>['menu/profile*']
         ],
-        
+
         /*
         [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        
+
         [
             'text'        => 'Tipos de Carros',
             'route'         => 'menu.cartypes.index',
             'icon'        => 'fas fa-fw fa-subway',
-            'active'        =>['menu/cartypes*']            
+            'active'        =>['menu/cartypes*']
         ],
         [
             'text'        => 'Iniciales',
             'route'         => 'menu.initials.index',
             'icon'        => 'fas fa-fw fa-font',
-            'active'        =>['menu/initials*']            
+            'active'        =>['menu/initials*']
         ],
         [
             'text'        => 'Roles',
             'url'         => 'menu.index',
-            'icon'        => 'far fa-fw fa fa-cogs',            
+            'icon'        => 'far fa-fw fa fa-cogs',
             'submenu' => [
                 [
                     'text' => 'level_one',
@@ -432,7 +434,7 @@ return [
             ]
         ],
         */
-        
+
         /*
         [
             'text'    => 'multilevel',

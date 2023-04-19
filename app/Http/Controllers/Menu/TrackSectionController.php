@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
-use App\Models\Company;
-use App\Models\Location;
+use App\Models\TrackSection;
+use App\Models\Track;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
-
-
-class CompanyController extends Controller
+class TrackSectionController extends Controller
 {
     use WithPagination;
     protected $paginationTheme="bootstrap";
@@ -18,11 +16,10 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $companies = Company::all();
-        return view('menu.companies.index',compact('companies'));
+        $tracksections = TrackSection::all();
+        return view('menu.tracksections.index',compact('tracksections'));
     }
 
     /**
@@ -32,9 +29,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        $locations=Location::pluck('name','id')->toArray();
-
-        return view('menu.companies.create',compact('locations'));
+        $tracks=Track::pluck('name','id')->toArray();
+        return view('menu.tracksections.create',compact('tracks'));
     }
 
     /**
@@ -47,17 +43,16 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'RFC'=> 'required',
+
 
         ]);
-        $company=Company::create([
+        $tracksection=TrackSection::create([
             'name' => $request->name,
-            'RFC' => $request->RFC,
-            'location_id'=>$request->location_id,
+            'track_id'=>$request->track_id,
         ]);
 
 
-        return redirect()->route('menu.companies.index')->with('info','Se registró la empresa satifactoriamente');
+        return redirect()->route('menu.tracksections.index')->with('info','Se registró el tramo satifactoriamente');
     }
 
     /**
@@ -66,9 +61,9 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($id)
     {
-        return view('menu.companies.show',compact('company'));
+        //
     }
 
     /**
@@ -77,10 +72,10 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit(TrackSection $tracksection)
     {
-        $locations=Location::pluck('name','id')->toArray();
-        return view('menu.companies.edit',compact('company','locations'));
+        $tracks=Track::pluck('name','id')->toArray();
+        return view('menu.tracksections.edit',compact('tracksection','tracks'));
     }
 
     /**
@@ -90,20 +85,18 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, TrackSection $tracksection)
     {
         $request->validate([
             'name' => 'required',
-            'RFC'=> 'required',
-            'location_id' => 'required'
+
         ]);
-        $company->update([
+        $tracksection->update([
             'name' => $request->name,
-            'RFC' => $request->RFC,
-            'location_id'=>$request->location_id
+            'track_id'=>$request->track_id
         ]);
 
-        return redirect()->route('menu.companies.edit',$company)->with('info','se actualizó satifactoriamente');
+        return redirect()->route('menu.tracksections.index',$tracksection)->with('info','se actualizó satifactoriamente');
     }
 
     /**
@@ -112,9 +105,10 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy(TrackSection $tracksection)
     {
-        $company->delete();
-        return redirect()->route('menu.companies.index')->with('info','La empresa se eliminó con exito');
+        $tracksection->delete();
+        return redirect()->route('menu.tracksections.index')->with('info','El tramo se eliminó con exito');
     }
+
 }

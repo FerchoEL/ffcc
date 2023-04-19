@@ -19,6 +19,9 @@ class Company extends Model
     public function users(){
         return $this->belongsToMany('App\Models\User');
     }
+    public function tracksection(){
+        return $this->belongsToMany('App\Models\TrackSection');
+    }
      //Relacion inversa uno a muchos
      public function location(){
         return $this->belongsTo('App\Models\Location');
