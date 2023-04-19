@@ -341,8 +341,14 @@ return [
             'route'         => 'menu.yards.index',
             'icon'        => 'fas fa-fw fa-square',
             'active'        =>['menu/yards*']
-
         ],
+        /*
+        [
+            'text'        => 'Listas de correo',
+            'route'         => 'menu.emails.index',
+            'icon'        => 'fas fa-fw fa-envelope-open',
+            'active'        =>['menu/emails*']
+        ],*/
         [
             'text'        => 'Lista de vias',
             'route'         => 'menu.tracks.index',
@@ -403,6 +409,10 @@ return [
         ],
 
         [
+
+        /*
+        [
+
             'text'        => 'Tipos de Carros',
             'route'         => 'menu.cartypes.index',
             'icon'        => 'fas fa-fw fa-subway',
