@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Menu;
 use App\Http\Controllers\Controller;
 use App\Models\Inspection;
 use App\Models\Location;
+use App\Models\TrackSection;
 /*use App\Models\TrackSection;*/
 use App\Models\User;
 use App\Models\Company;
@@ -32,14 +33,8 @@ class InspectionController extends Controller
      */
     public function create()
     {
-        $users=User::pluck('name','id')->toArray();
-        $companies=Company::pluck('name','id')->toArray();
-        $yards=Yard::pluck('name','id')->toArray();
-        $tracks=Track::pluck('name','id')->toArray();
-        $locations=Location::pluck('name','id')->toArray();
-//        $tracksections=TrackSection::pluck('name','id')->toArray();
-        return view('menu.inspections.create',compact('users','companies',
-            'yards','tracks','locations'));
+        return view('menu.inspections.create');
+  
     }
 
     /**
@@ -50,10 +45,8 @@ class InspectionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /* $request->validate([
             'name' => 'required',
-
-
         ]);
         $inspection=Inspection::create([
             'name'=>$request->name,
@@ -66,7 +59,7 @@ class InspectionController extends Controller
         ]);
 
 
-        return redirect()->route('menu.inspections.index')->with('info','Se registró el tramo satifactoriamente');
+        return redirect()->route('menu.inspections.index')->with('info','Se registró el tramo satifactoriamente'); */
     }
 
     /**

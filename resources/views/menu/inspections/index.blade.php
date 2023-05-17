@@ -53,7 +53,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4">No hay ningún rol registrado</td>
+                        <td colspan="7">No hay registro de inspecciones</td>
                     </tr>
                 @endforelse
                 </tbody>

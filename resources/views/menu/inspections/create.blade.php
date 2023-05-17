@@ -10,7 +10,8 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route'=> 'menu.inspections.store']) !!}
-            @include('menu.inspections.partials.form')
+            {{-- @include('menu.inspections.partials.form') --}} 
+            @livewire('inspection-form') 
 
             {!! Form::submit('Crear inspección', ['class' => 'btn btn-primary mt-2']) !!}
 

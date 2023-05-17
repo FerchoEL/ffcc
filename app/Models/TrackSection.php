@@ -10,6 +10,14 @@ class TrackSection extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    public function scopeTrackSection($query,$selectedTrack)
+    {
+        if($selectedTrack){
+            return $query->where('track_id', $selectedTrack);
+        }
+        
+    }
+
     public function track(){
         return $this->belongsTo('App\Models\Track');
     }

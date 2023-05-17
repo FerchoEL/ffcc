@@ -15,19 +15,15 @@ return new class extends Migration
     {
         Schema::create('inspections', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
-            $table->unsignedBigInteger('company_id')->nullable();
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('SET NULL');
             $table->unsignedBigInteger('yard_id')->nullable();
             $table->foreign('yard_id')->references('id')->on('yards')->onDelete('SET NULL');
             $table->unsignedBigInteger('track_id')->nullable();
             $table->foreign('track_id')->references('id')->on('tracks')->onDelete('SET NULL');
-            $table->unsignedBigInteger('location_id')->nullable();
-            $table->foreign('location_id')->references('id')->on('locations')->onDelete('SET NULL');
-            /*$table->unsignedBigInteger('tracksection_id')->nullable();
-            $table->foreign('tracksection_id')->references('id')->on('track_sections')->onDelete('SET NULL');*/
+            $table->unsignedBigInteger('tracksection_id')->nullable();
+            $table->foreign('tracksection_id')->references('id')->on('track_sections')->onDelete('SET NULL');
+            
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ use App\Models\Location;
 use App\Models\Track;
 use App\Models\User;
 use App\Models\Yard;
+use App\Models\TrackSection;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -45,7 +46,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('admin123'),
             'company_id' => $companies[rand(1,count($companies)-1)]->id
         ])->assignRole('admin');
-        User::factory(15)->create();
+        $users=User::factory(15)->create();
         Initial::factory(10)->create();
 
         // $locations=Location::factory(10)->create();
@@ -62,14 +63,24 @@ class UserSeeder extends Seeder
         }
         $yards=Yard::all();
         foreach ($yards as $yard) {
-            $yard->users()->attach(User::all()->random()->id);
-            Track::factory(3)->create([
+           /*  $yard->users()->attach(User::all()->random()->id); */
+            $tracks=Track::factory(3)->create([
                 'yard_id'=>$yard->id
             ]);
         }
         foreach ($companies as $company) {
             $company->users()->attach(User::all()->random()->id);
+            $company->users()->attach(User::all()->random()->id);
+            $company->users()->attach(User::all()->random()->id);
+        } 
+        foreach ($users as $user){
+         
+            $user->yards()->attach(Yard::all()->random()->id);
+            $user->yards()->attach(Yard::all()->random()->id);
+            
         }
+
+
 
         $CarTypes=['A','B','C'];
         foreach ($CarTypes as $CarType) {
@@ -80,8 +91,16 @@ class UserSeeder extends Seeder
                 'name' => $CarType,
             ]);
         }
-
-
+        $tracks=Track::all();
+        foreach ($tracks as $track) { 
+            for ($i=1; $i < 6; $i++) { 
+                TrackSection::factory(1)->create([
+                    'name'=>'Tramo '.$i,
+                    'track_id'=>$track->id
+                ]);
+            }
+         }
+       
 
     }
 }

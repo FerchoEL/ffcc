@@ -9,6 +9,11 @@ class Inspection extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    const EMPTY = 1;
+    const LOADED = 2;
+    const BO = 0;
+    const OK = 1;
+
 
     public function user(){
         return $this->belongsTo('App\Models\User');
