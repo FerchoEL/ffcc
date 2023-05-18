@@ -72,6 +72,8 @@ class UserSeeder extends Seeder
             $company->users()->attach(User::all()->random()->id);
             $company->users()->attach(User::all()->random()->id);
             $company->users()->attach(User::all()->random()->id);
+
+            
         } 
         foreach ($users as $user){
          
