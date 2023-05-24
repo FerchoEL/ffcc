@@ -10,6 +10,7 @@ class Company extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+
     //Relacion uno a munchos
     public function yards(){
         return $this->hasMany('App\Models\Yard');

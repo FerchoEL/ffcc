@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\CarType;
 use App\Models\Company;
+use App\Models\ComponentTrack;
 use App\Models\Initial;
 use App\Models\Location;
 use App\Models\Track;
@@ -73,13 +74,13 @@ class UserSeeder extends Seeder
             $company->users()->attach(User::all()->random()->id);
             $company->users()->attach(User::all()->random()->id);
 
-            
-        } 
+
+        }
         foreach ($users as $user){
-         
+
             $user->yards()->attach(Yard::all()->random()->id);
             $user->yards()->attach(Yard::all()->random()->id);
-            
+
         }
 
 
@@ -94,15 +95,19 @@ class UserSeeder extends Seeder
             ]);
         }
         $tracks=Track::all();
-        foreach ($tracks as $track) { 
-            for ($i=1; $i < 6; $i++) { 
+        foreach ($tracks as $track) {
+            ComponentTrack::factory(1)->create([
+                'track_id'=>$track->id
+            ]);
+            for ($i=1; $i < 6; $i++) {
                 TrackSection::factory(1)->create([
                     'name'=>'Tramo '.$i,
                     'track_id'=>$track->id
                 ]);
             }
+
          }
-       
+
 
     }
 }

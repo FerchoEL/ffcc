@@ -10,10 +10,14 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route'=> 'menu.inspections.store']) !!}
-            {{-- @include('menu.inspections.partials.form') --}} 
-            @livewire('inspection-form') 
+            {{-- @include('menu.inspections.partials.form') --}}
+            @livewire('inspection-form')
+            <div class="d-flex justify-content-around">
+                {!! Form::submit('Crear inspección', ['class' => 'btn btn-primary mt-2']) !!}
+{{--                {!! Form::submit('Subir archivo', ['class' => 'btn btn-primary mt-2']) !!}--}}
+{{--                {!! Form::submit('Cargar imagen', ['class' => 'btn btn-primary mt-2']) !!}--}}
+            </div>
 
-            {!! Form::submit('Crear inspección', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

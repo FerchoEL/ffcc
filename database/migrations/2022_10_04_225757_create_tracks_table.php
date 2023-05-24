@@ -20,6 +20,23 @@ return new class extends Migration
             $table->foreign('yard_id')->references('id')->on('yards')->onDelete('SET NULL');
             $table->timestamps();
         });
+        Schema::create('component_tracks', function (Blueprint $table){
+            $table->id();
+            $table->string('type_track');
+            $table->string('type_tracksleeper_one');
+            $table->string('lenght_tracksleeper_one');
+            $table->string('type_tracksleeper_two')->nullable();
+            $table->string('lenght_tracksleeper_two')->nullable();
+            $table->string('weight_rails_one');
+            $table->string('lenght_rails_one');
+            $table->string('weight_rails_two');
+            $table->string('lenght_rails_two');
+            $table->string('railroadswitch_interior');
+            $table->string('railroadswitch_exterior');
+            $table->unsignedBigInteger('track_id')->nullable()->unique();
+            $table->foreign('track_id')->references('id')->on('tracks')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,5 +47,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('tracks');
+        Schema::dropIfExists('component_tracks');
     }
 };

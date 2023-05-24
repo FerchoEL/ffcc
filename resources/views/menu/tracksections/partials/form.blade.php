@@ -17,4 +17,5 @@
     @enderror
 
     {!! Form::select('track_id', $tracks, null, ['class' => 'form-control']) !!}
+{{--    @dd($tracks)--}}
 </div>

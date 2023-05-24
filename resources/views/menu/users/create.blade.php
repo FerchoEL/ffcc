@@ -10,8 +10,8 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route'=> 'menu.users.store']) !!}
-            @include('menu.users.partials.form')
-
+{{--            @include('menu.users.partials.form')--}}
+            @livewire('form-users')
             {!! Form::submit('Crear usuario', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}

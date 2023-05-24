@@ -69,6 +69,7 @@ class User extends Authenticatable
     public function company(){
         return $this->belongsTo('App\Models\Company');
     }
+
     //RElacion muchos a muchos
     public function yards(){
         return $this->belongsToMany('App\Models\Yard');

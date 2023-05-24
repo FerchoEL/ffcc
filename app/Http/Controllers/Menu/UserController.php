@@ -52,9 +52,10 @@ class UserController extends Controller
             'email' => $request->email,
             'password'=>bcrypt($request->password),
             'company_id'=>$request->company_id,
-
-
         ]);
+        $User->yards()->attach($request->yard_id);
+        $User->company()->attach($request->company_id);
+
 
         return redirect()->route('menu.users.index')->with('info','Se registró satifactoriamente');
     }
