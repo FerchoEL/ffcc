@@ -19,7 +19,7 @@
     @enderror
 </div>
 <div class="form-group">
-    <strong>Ubicación</strong>
+    <strong>Ubicación:</strong>
     @error('locations')
             <small class="text-danger">
                 <strong>{{$message}}</strong>

@@ -48,7 +48,7 @@ class RoleController extends Controller
         ]);
 
         $role->permissions()->attach($request->permissions);
-        return redirect()->route('menu.roles.index')->with('info','El rol se creó satifactoriamente');
+        return redirect()->route('menu.roles.index')->with('info','Se registró el rol correctamente');
     }
 
     /**
@@ -91,7 +91,7 @@ class RoleController extends Controller
             'name' => $request->name
         ]);
         $role->permissions()->sync($request->permissions);
-        return redirect()->route('menu.roles.edit',$role)->with('info','se actualizó satifactoriamente');
+        return redirect()->route('menu.roles.edit',$role)->with('info','Se actualizó el rol correctamente');
     }
 
     /**
@@ -103,6 +103,6 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        return redirect()->route('menu.roles.index')->with('info','El rol se eliminó con exito');
+        return redirect()->route('menu.roles.index')->with('info','Se eliminó el rol correctamente');
     }
 }

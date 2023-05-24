@@ -21,7 +21,7 @@
 @if($route === 'create'){{--evalua si esta en la vista create--}}
     <div class="form-group">
         {!! Form::label('type_track', 'Tipo de vía: ') !!}
-        {!! Form::select('type_track', [0=>'Selecciona el tipo de vía','Clasica'=>'Clasica','Elastica'=>'Elastica','Clasica/Elastica'=>'Clasica/Elastica'] ,null, ['class' => 'form-control']) !!}
+        {!! Form::select('type_track', [0=>'Selecciona el tipo de vía','Clásica'=>'Clásica','Elástica'=>'Elástica','Clásica/Elástica'=>'Clásica/Elástica'] ,null, ['class' => 'form-control']) !!}
         @error('type_track')
         <span class="invalid-feedback">
             <strong>{{$message}}</strong>
@@ -105,7 +105,7 @@
 @else {{--sino, está en la vista edit--}}
 <div class="form-group">
     {!! Form::label('type_track', 'Tipo de vía: ') !!}
-    {!! Form::select('type_track', [0=>'Selecciona el tipo de vía','Clasica'=>'Clasica','Elastica'=>'Elastica','Clasica/Elastica'=>'Clasica/Elastica'],$components->type_track , ['class' => 'form-control']) !!}
+    {!! Form::select('type_track', [0=>'Selecciona el tipo de vía','Clásica'=>'Clásica','Elástica'=>'Elástica','Clásica/Elástica'=>'Clásica/Elástica'],$components->type_track , ['class' => 'form-control']) !!}
     @error('type_track')
     <span class="invalid-feedback">
             <strong>{{$message}}</strong>

@@ -57,7 +57,7 @@ class CompanyController extends Controller
         ]);
 
 
-        return redirect()->route('menu.companies.index')->with('info','Se registró la empresa satifactoriamente');
+        return redirect()->route('menu.companies.index')->with('info','Se registró la empresa correctamente');
     }
 
     /**
@@ -103,7 +103,7 @@ class CompanyController extends Controller
             'location_id'=>$request->location_id
         ]);
 
-        return redirect()->route('menu.companies.edit',$company)->with('info','se actualizó satifactoriamente');
+        return redirect()->route('menu.companies.edit',$company)->with('info','Se actualizó la empresa correctamente');
     }
 
     /**
@@ -115,6 +115,6 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         $company->delete();
-        return redirect()->route('menu.companies.index')->with('info','La empresa se eliminó con exito');
+        return redirect()->route('menu.companies.index')->with('info','Se eliminó la empresa correctamente');
     }
 }

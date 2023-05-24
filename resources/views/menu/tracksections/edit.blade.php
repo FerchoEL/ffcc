@@ -3,13 +3,13 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Editar patio</h1>
+    <h1>Editar Tramo</h1>
 @stop
 
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">

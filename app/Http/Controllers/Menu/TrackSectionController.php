@@ -52,7 +52,7 @@ class TrackSectionController extends Controller
         ]);
 
 
-        return redirect()->route('menu.tracksections.index')->with('info','Se registró el tramo satifactoriamente');
+        return redirect()->route('menu.tracksections.index')->with('info','Se registró el tramo correctamente');
     }
 
     /**
@@ -96,7 +96,7 @@ class TrackSectionController extends Controller
             'track_id'=>$request->track_id
         ]);
 
-        return redirect()->route('menu.tracksections.index',$tracksection)->with('info','se actualizó satifactoriamente');
+        return redirect()->route('menu.tracksections.index',$tracksection)->with('info','Se actualizó el tramo correctamente');
     }
 
     /**
@@ -108,7 +108,7 @@ class TrackSectionController extends Controller
     public function destroy(TrackSection $tracksection)
     {
         $tracksection->delete();
-        return redirect()->route('menu.tracksections.index')->with('info','El tramo se eliminó con exito');
+        return redirect()->route('menu.tracksections.index')->with('info','Se eliminó el tramo correctamente');
     }
 
 }

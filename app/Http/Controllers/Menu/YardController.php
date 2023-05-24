@@ -52,7 +52,7 @@ class YardController extends Controller
 
         ]);
 
-        return redirect()->route('menu.yards.index')->with('info','Se registró la empresa satifactoriamente');
+        return redirect()->route('menu.yards.index')->with('info','Se registró el patio correctamente');
     }
 
     /**
@@ -99,7 +99,7 @@ class YardController extends Controller
             'company_id'=>$request->company_id
         ]);
 
-      return redirect()->route('menu.yards.edit',$yard)->with('info','se actualizó satifactoriamente');
+      return redirect()->route('menu.yards.edit',$yard)->with('info','Se actualizó el patio correctamente');
     }
 
     /**
@@ -111,6 +111,6 @@ class YardController extends Controller
     public function destroy(Yard $yard)
     {
         $yard->delete();
-        return redirect()->route('menu.yards.index')->with('info','La empresa se eliminó con exito');
+        return redirect()->route('menu.yards.index')->with('info','Se eliminó el patio correctamente');
     }
 }

@@ -3,7 +3,7 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Crear nuevo herraje</h1>
+    <h1>Nuevo herraje</h1>
 @stop
 
 @section('content')

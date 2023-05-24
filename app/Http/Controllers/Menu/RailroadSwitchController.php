@@ -51,7 +51,7 @@ class RailroadSwitchController extends Controller
             
         ]);
         //comentario de prueba local
-        return redirect()->route('menu.railroadswitches.index')->with('info','Se registró satifactoriamente');
+        return redirect()->route('menu.railroadswitches.index')->with('info','Se registró el herraje correctamente');
     }
 
     /**
@@ -97,7 +97,7 @@ class RailroadSwitchController extends Controller
             'yard_id'=>$request->yard_id  
         ]);
     
-      return redirect()->route('menu.railroadswitches.edit',$railroadswitch)->with('info','se actualizó satifactoriamente');
+      return redirect()->route('menu.railroadswitches.edit',$railroadswitch)->with('info','Se actualizó el herraje correctamente');
     }
 
     /**
@@ -106,8 +106,9 @@ class RailroadSwitchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(RailroadSwitch $railroadswitch)
     {
-        //
+        $railroadswitch->delete();
+        return redirect()->route('menu.railroadswitches.index')->with('info','Se eliminó el herraje correctamente');
     }
 }

@@ -9,7 +9,7 @@
     @enderror
 </div>
 <div class="form-group">
-    <strong>Via</strong>
+    <strong>Vía</strong>
     @error('tracks')
     <small class="text-danger">
         <strong>{{$message}}</strong>
