@@ -3,7 +3,7 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Crear nuevo rol</h1>
+    <h1>Nuevo rol</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
             {!! Form::open(['route'=> 'menu.roles.store']) !!}
                 @include('menu.roles.partials.form')
                 
-                {!! Form::submit('Crear rol', ['class' => 'btn btn-primary mt-2']) !!}
+                {!! Form::submit('Registrar rol', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

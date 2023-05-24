@@ -4,13 +4,13 @@
 
 
 @section('content_header')
-    <h1>Lista de vías</h1>
+    <h1>Vías</h1>
 @stop
 
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
@@ -22,8 +22,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Nombre</th>
                         <th>Patio</th>
+                        <th>Componentes</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -33,6 +34,67 @@
                             <td>{{$track->id}}</td>
                             <td>{{$track->name}}</td>
                             <td>{{$track->yard->name}}</td>
+                            <td width='10px'><a class="btn btn-primary" data-toggle="modal" data-target=".showComponents{{$track->id}}-lg">Ver mas</a>
+                                <div class="modal fade showComponents{{$track->id}}-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Componentes</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="">Tipo de vía</label>
+{{--                                                    @dump($components[$track->id]['type_track'])--}}
+                                                    <input type="text" name="name" value="{{$components[$track->id]['type_track']}}" disabled class="form-control">
+                                                </div>
+                                            </div>
+                                            <label style="margin-left: 12px" for="">Durmientes</label>
+                                            <div style="gap: 30px" class="d-flex justify-content-around">
+                                                <div style="width: 45%" class="form-group">
+                                                    <label for="">Durmiente de vía</label>
+                                                    <input type="text" name="name" value="{{$components[$track->id]['type_tracksleeper_one']}}" disabled class="mb-2 form-control">
+                                                    <input type="text" name="name" value="{{$components[$track->id]['lenght_tracksleeper_one']}}" disabled class="form-control">
+                                                </div>
+{{--                                                <div style="width: 45%" class="form-group">--}}
+{{--                                                    <label for="">Durmiente de vía 2</label>--}}
+{{--                                                    <input type="text" name="name" value="{{$components[$loop->index]->type_tracksleeper_two}}" disabled class="mb-2 form-control">--}}
+{{--                                                    <input type="text" name="name" value="{{$components[$loop->index]->lenght_tracksleeper_two}}" disabled class="form-control">--}}
+{{--                                                </div>--}}
+                                            </div>
+                                            <label style="margin-left: 12px" for="">Rieles</label>
+                                            <div style="gap: 30px" class="d-flex justify-content-around">
+                                                <div style="width: 45%" class="form-group">
+                                                    <label for="">Riel 1</label>
+                                                    <input type="text" name="name" value="{{$components[$track->id]['weight_rails_one']}} lbs/g" disabled class="mb-2 form-control">
+                                                    <input type="text" name="name" value="{{$components[$track->id]['lenght_rails_one']}}" disabled class="form-control">
+                                                </div>
+                                                <div style="width: 45%" class="form-group">
+                                                    <label for="">Riel 2</label>
+                                                    <input type="text" name="name" value="{{$components[$track->id]['weight_rails_two']}} lbs/g" disabled class="mb-2 form-control">
+                                                    <input type="text" name="name" value="{{$components[$track->id]['lenght_rails_two']}}" disabled class="form-control">
+                                                </div>
+                                            </div>
+                                            <label style="margin-left: 12px" for="">Rieles</label>
+                                            <div style="gap: 30px" class="d-flex justify-content-around">
+                                                <div style="width: 45%" class="form-group">
+                                                    <label for="">Riel 1</label>
+                                                    <input type="text" name="name" value="{{$components[$track->id]['railroadswitch_interior']}}" disabled class="form-control">
+                                                </div>
+                                                <div style="width: 45%" class="form-group">
+                                                    <label for="">Riel 2</label>
+                                                    <input type="text" name="name" value="{{$components[$track->id]['railroadswitch_exterior']}}" disabled class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
                             <td width='10px'><a class="btn btn-secondary" href={{route('menu.tracks.edit',$track)}}>Editar</a></td>
                             <td width='10px'>
                                 <form action="{{route('menu.tracks.destroy',$track)}}" method="post">
@@ -44,7 +106,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No hay ningúna vía registrada</td>
+                            <td colspan="4">No hay ninguna vía registrada</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -53,7 +115,7 @@
                 {{$tracks->links()}}
             </div>
         </div>
-        
+
     </div>
 @stop
 

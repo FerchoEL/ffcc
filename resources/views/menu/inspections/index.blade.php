@@ -4,13 +4,13 @@
 
 
 @section('content_header')
-    <h1>Lista de inspeccioness</h1>
+    <h1>Inspecciones</h1>
 @stop
 
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
@@ -24,10 +24,10 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Usuario</th>
-                    <th>Compañia</th>
+                    <th>Empresa</th>
                     <th>Patio</th>
-                    <th>Via</th>
-                    <th>Ubicacion</th>
+                    <th>Vía</th>
+                    <th>Ubicación</th>
                     <th colspan="2"></th>
 
                 </tr>

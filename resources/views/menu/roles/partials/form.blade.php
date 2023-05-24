@@ -9,7 +9,7 @@
     @enderror
 </div>
 
-<strong>Permisos</strong>
+<h4>Seleccione los permisos:</h4>
 @error('permissions')
         <small class="text-danger">
             <strong>{{$message}}</strong>

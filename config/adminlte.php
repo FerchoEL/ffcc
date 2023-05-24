@@ -305,11 +305,12 @@ return [
 
 
         [
-            'text'        => 'Dashboard',
+            'text'        => 'Bienvenida',
             'route'         => 'menu.home',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
 
         ],
+        ['header' => '',],
         [
             'text'        => 'Usuarios',
             'route'         => 'menu.users.index',
@@ -317,12 +318,12 @@ return [
             'active'        =>['menu/users*']
         ],
         [
-            'text'        => 'Lista de roles',
+            'text'        => 'Roles',
             'route'         => 'menu.roles.index',
             'icon'        => 'fas fa-fw fa-users-cog',
             'active'        =>['menu/roles*']
         ],
-
+        ['header' => '',],
         [
             'text'        => 'Empresas',
             'route'         => 'menu.companies.index',
@@ -335,11 +336,12 @@ return [
             'icon'        => 'fas fa-fw fa-globe-americas',
             'active'        =>['menu/locations*']
         ],
-        ['header' => 'LISTAS'],
+        ['header' => '',],
+        // ['header' => 'LISTAS'],
         [
-            'text'        => 'Lista de patios',
+            'text'        => 'Patios',
             'route'         => 'menu.yards.index',
-            'icon'        => 'fas fa-fw fa-square',
+            'icon'        => 'fas fa-fw fa-train',
             'active'        =>['menu/yards*']
         ],
         /*
@@ -350,32 +352,33 @@ return [
             'active'        =>['menu/emails*']
         ],*/
         [
-            'text'        => 'Lista de vias',
+            'text'        => 'Vías',
             'route'         => 'menu.tracks.index',
             'icon'        => 'fas fa-fw fa-road',
 //            'active'        =>['menu/tracks*']
         ],
         [
-            'text'        => 'Lista de tramos',
+            'text'        => 'Tramos',
             'route'         => 'menu.tracksections.index',
-            'icon'        => 'fas fa-fw fa-square',
+            'icon'        => 'fas fa-fw fa-route',
             'active'        =>['menu/tracksections*']
         ],
         [
-            'text'        => 'Lista de herrajes',
+            'text'        => 'Herrajes',
             'route'         => 'menu.railroadswitches.index',
             'icon'        => 'fas fa-fw fa-random',
             'active'        =>['menu/railroadswitches*']
         ],
+        ['header' => '',],
         [
-            'text'        => 'Lista de inspecciones',
+            'text'        => 'Inspecciones',
             'route'         => 'menu.inspections.index',
-            'icon'        => 'fas fa-fw fa-random',
+            'icon'        => 'fas fa-fw fa-book',
 
         ],
-        ['header' => 'INSPECCIÓN',],
+        // ['header' => 'INSPECCIÓN',],
         [
-            'text'        => 'Realizar una inspección',
+            'text'        => 'Nueva inspección',
             'route'         => 'menu.inspections.create',
             'icon'        => 'fas fa-fw fa-user-secret',
         ],
@@ -392,7 +395,7 @@ return [
             'active'        =>['menu/emails*']
         ],
         */
-
+        ['header' => '',],
         ['header' => 'CONFIGURACIÓN DE CUENTA'],
         [
             'text' => 'Mi cuenta',
@@ -485,22 +488,22 @@ return [
             ],
         ],
         */
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+//        ['header' => 'labels'],
+//        [
+//            'text'       => 'important',
+//            'icon_color' => 'red',
+//            'url'        => '#',
+//        ],
+//        [
+//            'text'       => 'warning',
+//            'icon_color' => 'yellow',
+//            'url'        => '#',
+//        ],
+//        [
+//            'text'       => 'information',
+//            'icon_color' => 'cyan',
+//            'url'        => '#',
+//        ],
     ],
 
     /*

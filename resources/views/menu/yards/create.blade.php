@@ -3,7 +3,7 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Crear nuevo patio</h1>
+    <h1>Nuevo patio</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
             {!! Form::open(['route'=> 'menu.yards.store']) !!}
                 @include('menu.yards.partials.form')
                 
-                {!! Form::submit('Crear patio', ['class' => 'btn btn-primary mt-2']) !!}
+                {!! Form::submit('Registrar patio', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

@@ -9,13 +9,14 @@
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
         <div class="card-body">
             {!! Form::model($user,['route'=> ['menu.users.update',$user], 'method' => 'put']) !!}
-            @include('menu.users.partials.form')
+{{--            @include('menu.users.partials.form')--}}
+            @livewire('form-users')
             {!! Form::submit('Actualizar usuario', ['class' => 'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}
         </div>

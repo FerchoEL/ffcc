@@ -4,18 +4,18 @@
 
 
 @section('content_header')
-    <h1>Lista de roles</h1>
+    <h1>Roles</h1>
 @stop
 
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
         <div class="card-header">
-            <a href="{{route('menu.roles.create')}}" class="btn btn-primary">Crear Rol</a>
+            <a href="{{route('menu.roles.create')}}" class="btn btn-primary">Registrar Rol</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">

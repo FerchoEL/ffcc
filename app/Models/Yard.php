@@ -11,6 +11,14 @@ class Yard extends Model
     protected $guarded = ['id'];
 
     //Relacion uno a uno
+
+    public function scopeYard($query,$selectedCompany)
+    {
+        if($selectedCompany){
+            return $query->where('company_id', $selectedCompany);
+        }
+
+    }
     public function email(){
         return $this->hasOne('App\Models\Email');
     }
@@ -30,7 +38,7 @@ class Yard extends Model
     public function company(){
         return $this->belongsTo('App\Models\Company');
     }
-    
+
     //RElacion muchos a muchos
     public function users(){
         return $this->belongsToMany('App\Models\User');

@@ -15,7 +15,7 @@ class Track extends Model
         if($selectedYard){
             return $query->where('yard_id', $selectedYard);
         }
-        
+
     }
 
     //Relacion inversa uno a muchos
@@ -26,5 +26,8 @@ class Track extends Model
     //Relacion inversa uno a uno
     public function carInspection(){
         return $this->belongsTo('App\Models\CarInspection');
+    }
+    public function component_track(){
+        return $this->hasOne('App\Models\ComponentTrack');
     }
 }

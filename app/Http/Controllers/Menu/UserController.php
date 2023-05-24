@@ -52,11 +52,12 @@ class UserController extends Controller
             'email' => $request->email,
             'password'=>bcrypt($request->password),
             'company_id'=>$request->company_id,
-
-
         ]);
+        $User->yards()->attach($request->yard_id);
+        $User->company()->attach($request->company_id);
 
-        return redirect()->route('menu.users.index')->with('info','Se registró satifactoriamente');
+
+        return redirect()->route('menu.users.index')->with('info','Se registró el usuario correctamente');
     }
 
     /**
@@ -106,7 +107,7 @@ class UserController extends Controller
             'company_id'=>$request->company_id
 
         ]);
-        return redirect()->route('menu.users.edit', $user)->with('info','Se asignó el rol correctamente');
+        return redirect()->route('menu.users.edit', $user)->with('info','Se actualizó al usuario correctamente');
     }
 
     /**
@@ -118,6 +119,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('menu.users.index')->with('info','Se eliminó el registro satifactoriamente');
+        return redirect()->route('menu.users.index')->with('info','Se eliminó el usuario correctamente');
     }
 }
