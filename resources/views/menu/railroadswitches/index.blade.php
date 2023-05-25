@@ -4,18 +4,18 @@
 
 
 @section('content_header')
-    <h1>Lista de Herrajes</h1>
+    <h1>Herrajes</h1>
 @stop
 
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
         <div class="card-header">
-            <a href="{{route('menu.railroadswitches.create')}}" class="btn btn-primary">Registrar Herrajes</a>
+            <a href="{{route('menu.railroadswitches.create')}}" class="btn btn-primary">Registrar Herraje</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">

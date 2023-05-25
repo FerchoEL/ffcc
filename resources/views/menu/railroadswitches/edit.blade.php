@@ -3,13 +3,13 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Editar patio</h1>
+    <h1>Editar herraje</h1>
 @stop
 
 @section('content')
     @if (session('info'))
             <div class="alert alert-success" role="alert">
-                <strong>Exito!</strong> {{session('info')}}
+                <strong>Éxito!</strong> {{session('info')}}
             </div>
         @endif
     <div class="card">
@@ -17,7 +17,7 @@
             {!! Form::model($railroadswitch,['route'=> ['menu.railroadswitches.update',$railroadswitch], 'method' => 'put']) !!}
                 @include('menu.railroadswitches.partials.form')
                 
-                {!! Form::submit('Actualizar patio', ['class' => 'btn btn-primary mt-2']) !!}
+                {!! Form::submit('Actualizar herraje', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

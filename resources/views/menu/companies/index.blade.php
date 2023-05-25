@@ -4,13 +4,13 @@
 
 
 @section('content_header')
-    <h1>Lista de empresas</h1>
+    <h1>Empresas</h1>
 @stop
 
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
@@ -46,7 +46,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3">No hay ningúna empresa registrada</td>
+                            <td colspan="3">No hay ninguna empresa registrada</td>
                         </tr>
                     @endforelse
                 </tbody>

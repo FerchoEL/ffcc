@@ -4,13 +4,13 @@
 
 
 @section('content_header')
-    <h1>Lista de vías</h1>
+    <h1>Vías</h1>
 @stop
 
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
@@ -22,7 +22,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Nombre</th>
                         <th>Patio</th>
                         <th>Componentes</th>
                         <th colspan="2"></th>
@@ -106,7 +106,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No hay ningúna vía registrada</td>
+                            <td colspan="4">No hay ninguna vía registrada</td>
                         </tr>
                     @endforelse
                 </tbody>

@@ -1,7 +1,7 @@
 <div>
     @if (session('info'))
         <div class="alert alert-success" role="alert">
-            <strong>Exito!</strong> {{session('info')}}
+            <strong>Éxito!</strong> {{session('info')}}
         </div>
     @endif
     <div class="card">
@@ -9,7 +9,7 @@
             <input wire:keydown="limpiar_page()" wire:model="search" class="form-control w-100" type="text" placeholder="Escriba un nombre">
         </div>
         <div class="class-header">
-            <a href="{{route('menu.users.create')}}" class="btn btn-primary ml-4 mt-2" >Crear usuario</a>
+            <a href="{{route('menu.users.create')}}" class="btn btn-primary ml-4 mt-2" >Registrar usuario</a>
         </div>
         @if ($users->count())
             <div class="card-body table-responsive">

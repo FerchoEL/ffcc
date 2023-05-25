@@ -3,7 +3,7 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Crear nuevo tramo</h1>
+    <h1>Nuevo tramo</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
             {!! Form::open(['route'=> 'menu.tracksections.store']) !!}
             @include('menu.tracksections.partials.form')
 
-            {!! Form::submit('Crear tramo', ['class' => 'btn btn-primary mt-2']) !!}
+            {!! Form::submit('Registrar tramo', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

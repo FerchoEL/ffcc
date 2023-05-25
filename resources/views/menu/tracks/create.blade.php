@@ -3,7 +3,7 @@
 @section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Crear nueva vía</h1>
+    <h1>Nueva vía</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
             {!! Form::open(['route'=> 'menu.tracks.store']) !!}
                 @include('menu.tracks.partials.form')
                 
-                {!! Form::submit('Crear vía', ['class' => 'btn btn-primary mt-2']) !!}
+                {!! Form::submit('Registrar vía', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

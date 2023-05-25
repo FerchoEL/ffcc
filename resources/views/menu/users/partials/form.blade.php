@@ -10,7 +10,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('email', 'Correo: ') !!}
-    {!! Form::text('email', null, ['class' => 'form-control'.($errors->has('name') ? ' is-invalid' : ''),'placeholder' => 'Escriba un nombre']) !!}
+    {!! Form::text('email', null, ['class' => 'form-control'.($errors->has('name') ? ' is-invalid' : ''),'placeholder' => 'Escriba un correo']) !!}
 
     @error('name')
     <span class="invalid-feedback">
@@ -21,7 +21,7 @@
 @if($route === 'menu.users.create')
     <div class="form-group">
         {!! Form::label('password', 'Contraseña: ') !!}
-        {!! Form::text('password', null, ['class' => 'form-control'.($errors->has('name') ? ' is-invalid' : ''),'placeholder' => 'Escriba un nombre']) !!}
+        {!! Form::text('password', null, ['class' => 'form-control'.($errors->has('name') ? ' is-invalid' : ''),'placeholder' => 'Escriba una contraseña']) !!}
 
         @error('name')
         <span class="invalid-feedback">
@@ -41,7 +41,6 @@
     {!! Form::select('company_id', $companies, null, ['class' => 'form-control mt-2']) !!}
 </div>
 <div class="form-group">
-    <h3>Lista de Roles</h3>
     @foreach ($roles as $role)
         <div>
             <label>

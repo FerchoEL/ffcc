@@ -9,7 +9,7 @@
 @section('content')
     @if (session('info'))
             <div class="alert alert-success" role="alert">
-                <strong>Exito!</strong> {{session('info')}}
+                <strong>Éxito!</strong> {{session('info')}}
             </div>
         @endif
     <div class="card">
@@ -17,7 +17,7 @@
             {!! Form::model($location,['route'=> ['menu.locations.update',$location], 'method' => 'put']) !!}
                 @include('menu.locations.partials.form')
                 
-                {!! Form::submit('Actualizar  ubicación', ['class' => 'btn btn-primary mt-2']) !!}
+                {!! Form::submit('Actualizar ubicación', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

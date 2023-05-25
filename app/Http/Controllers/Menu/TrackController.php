@@ -92,7 +92,7 @@ class TrackController extends Controller
             'railroadswitch_exterior' => $request->railroadswitch_exterior,
         ]);
 
-        return redirect()->route('menu.tracks.index')->with('info', 'Se registró satifactoriamente');
+        return redirect()->route('menu.tracks.index')->with('info', 'Se registró la vía correctamente');
     }
 
     /**
@@ -166,7 +166,7 @@ class TrackController extends Controller
             'railroadswitch_exterior' => $request->railroadswitch_exterior,
         ]);
 
-        return redirect()->route('menu.tracks.index', $track)->with('info', 'se actualizó satifactoriamente');
+        return redirect()->route('menu.tracks.index', $track)->with('info', 'Se actualizó la vía correctamente');
     }
 
     /**
@@ -178,6 +178,6 @@ class TrackController extends Controller
     public function destroy(Track $track)
     {
         $track->delete();
-        return redirect()->route('menu.tracks.index')->with('info', 'La vía se eliminó con exito');
+        return redirect()->route('menu.tracks.index')->with('info', 'Se eliminó la vía correctamente');
     }
 }

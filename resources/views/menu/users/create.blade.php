@@ -3,7 +3,7 @@
 @section('title', 'DashboardTITLE')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Nuevo usuario</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
             {!! Form::open(['route'=> 'menu.users.store']) !!}
 {{--            @include('menu.users.partials.form')--}}
             @livewire('form-users')
-            {!! Form::submit('Crear usuario', ['class' => 'btn btn-primary mt-2']) !!}
+            {!! Form::submit('Registrar usuario', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

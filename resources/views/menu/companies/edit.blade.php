@@ -9,7 +9,7 @@
 @section('content')
     @if (session('info'))
             <div class="alert alert-success" role="alert">
-                <strong>Exito!</strong> {{session('info')}}
+                <strong>Éxito!</strong> {{session('info')}}
             </div>
         @endif
     <div class="card">
@@ -17,7 +17,7 @@
             {!! Form::model($company,['route'=> ['menu.companies.update',$company], 'method' => 'put']) !!}
                 @include('menu.companies.partials.form')
                 
-                {!! Form::submit('Actualizar', ['class' => 'btn btn-primary mt-2']) !!}
+                {!! Form::submit('Actualizar empresa', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>
