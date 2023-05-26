@@ -143,4 +143,21 @@
             </div>            
         </div>
     </section>
+
+    <div x-data="{ count: 0 }">
+        <button x-on:click="count++">Incrementar</button>
+        <span x-text="count"></span>
+      </div>
+
+      <div x-data="{ showFields: false }">
+        <label>
+          <input type="checkbox" x-model="showFields"> Mostrar campos
+        </label>
+    
+        <div x-show="showFields">
+          <input type="text" placeholder="Nombre">
+          <input type="email" placeholder="Correo electrónico">
+          <input type="tel" placeholder="Teléfono">
+        </div>
+      </div>
 </x-app-layout>
