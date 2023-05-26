@@ -26,8 +26,8 @@ class TrackController extends Controller
                 'type_track' => $item->type_track,
                 'type_tracksleeper_one' => $item->type_tracksleeper_one,
                 'lenght_tracksleeper_one' => $item->lenght_tracksleeper_one,
-                /*'type_tracksleeper_two' => $item->type_tracksleeper_two,
-                'lenght_tracksleeper_two' => $item->lenght_tracksleeper_two,*/
+                'type_tracksleeper_two' => $item->type_tracksleeper_two,
+                'lenght_tracksleeper_two' => $item->lenght_tracksleeper_two,
                 'weight_rails_one' => $item->weight_rails_one,
                 'lenght_rails_one' => $item->lenght_rails_one,
                 'weight_rails_two' => $item->weight_rails_two,
@@ -35,7 +35,8 @@ class TrackController extends Controller
                 'railroadswitch_interior' => $item->railroadswitch_interior,
                 'railroadswitch_exterior' => $item->railroadswitch_exterior,
             ];return $carry;}, []);
-//        dd($components[1]['id']);
+
+//        dd($components[1]);
         return view('menu.tracks.index', compact('tracks', 'components'));
     }
 
@@ -65,7 +66,7 @@ class TrackController extends Controller
             'type_track' => 'required',
             'type_tracksleeper_one' => 'required',
             'lenght_tracksleeper_one' => 'required',
-            /*            'type_tracksleeper_two' => 'required',
+/*                        'type_tracksleeper_two' => 'required',
                         'lenght_tracksleeper_two' => 'required',*/
             'weight_rails_one' => 'required',
             'lenght_rails_one' => 'required',
@@ -82,8 +83,8 @@ class TrackController extends Controller
             'type_track' => $request->type_track,
             'type_tracksleeper_one' => $request->type_tracksleeper_one,
             'lenght_tracksleeper_one' => $request->lenght_tracksleeper_one,
-            /*'type_tracksleeper_two' => $request->type_tracksleeper_two,
-            'lenght_tracksleeper_two' => $request->lenght_tracksleeper_two,*/
+            'type_tracksleeper_two' => $request->type_tracksleeper_two,
+            'lenght_tracksleeper_two' => $request->lenght_tracksleeper_two,
             'weight_rails_one' => $request->weight_rails_one,
             'lenght_rails_one' => $request->lenght_rails_one,
             'weight_rails_two' => $request->weight_rails_two,
@@ -116,11 +117,12 @@ class TrackController extends Controller
     {
         $route = 'edit';
         $yards = Yard::pluck('name', 'id')->toArray();
-        $components = ComponentTrack::select('id', 'type_track', 'lenght_tracksleeper_one'/*, 'lenght_tracksleeper_two'*/,
-            'type_tracksleeper_one'/*, 'type_tracksleeper_two'*/, 'weight_rails_one', 'lenght_rails_one', 'weight_rails_two', 'lenght_rails_two',
+        $components = ComponentTrack::select('id', 'type_track', 'lenght_tracksleeper_one', 'lenght_tracksleeper_two',
+            'type_tracksleeper_one', 'type_tracksleeper_two', 'weight_rails_one', 'lenght_rails_one', 'weight_rails_two', 'lenght_rails_two',
             'railroadswitch_interior', 'railroadswitch_exterior')
             ->wheretrack_id($track->id)
             ->first();
+//        dd($components);
         return view('menu.tracks.edit', compact('track', 'yards', 'components', 'route'));
     }
 
@@ -139,8 +141,8 @@ class TrackController extends Controller
             'type_track' => 'required',
             'type_tracksleeper_one' => 'required',
             'lenght_tracksleeper_one' => 'required',
-            /*            'type_tracksleeper_two' => 'required',
-                        'lenght_tracksleeper_two' => 'required',*/
+            /*'type_tracksleeper_two' => 'required',
+            'lenght_tracksleeper_two' => 'required',*/
             'weight_rails_one' => 'required',
             'lenght_rails_one' => 'required',
             'weight_rails_two' => 'required',
@@ -156,8 +158,8 @@ class TrackController extends Controller
             'type_track' => $request->type_track,
             'type_tracksleeper_one' => $request->type_tracksleeper_one,
             'lenght_tracksleeper_one' => $request->lenght_tracksleeper_one,
-            /*'type_tracksleeper_two' => $request->type_tracksleeper_two,
-            'lenght_tracksleeper_two' => $request->lenght_tracksleeper_two,*/
+            'type_tracksleeper_two' => $request->type_tracksleeper_two,
+            'lenght_tracksleeper_two' => $request->lenght_tracksleeper_two,
             'weight_rails_one' => $request->weight_rails_one,
             'lenght_rails_one' => $request->lenght_rails_one,
             'weight_rails_two' => $request->weight_rails_two,

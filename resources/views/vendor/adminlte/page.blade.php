@@ -54,4 +54,5 @@
 @section('adminlte_js')
     @stack('js')
     @yield('js')
+    @vite(['resources/js/app.js'])
 @stop

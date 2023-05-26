@@ -58,11 +58,14 @@
                                                     <input type="text" name="name" value="{{$components[$track->id]['type_tracksleeper_one']}}" disabled class="mb-2 form-control">
                                                     <input type="text" name="name" value="{{$components[$track->id]['lenght_tracksleeper_one']}}" disabled class="form-control">
                                                 </div>
-{{--                                                <div style="width: 45%" class="form-group">--}}
-{{--                                                    <label for="">Durmiente de vía 2</label>--}}
-{{--                                                    <input type="text" name="name" value="{{$components[$loop->index]->type_tracksleeper_two}}" disabled class="mb-2 form-control">--}}
-{{--                                                    <input type="text" name="name" value="{{$components[$loop->index]->lenght_tracksleeper_two}}" disabled class="form-control">--}}
-{{--                                                </div>--}}
+                                                <div style="width: 45%" x-data="{ type_tracksleeper_two: '{{$components[$track->id]['type_tracksleeper_two']}}'
+                                                ,lenght_tracksleeper_two: '{{$components[$track->id]['lenght_tracksleeper_two']}}'}">
+                                                    <div x-show="type_tracksleeper_two !== null && type_tracksleeper_two !== '' || lenght_tracksleeper_two !== null && lenght_tracksleeper_two !== ''">
+                                                        <label for="">Durmiente de vía</label>
+                                                        <input type="text" x-model="type_tracksleeper_two"  disabled class="mb-2 form-control">
+                                                        <input type="text" x-model="lenght_tracksleeper_two" disabled class="mb-2 form-control">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <label style="margin-left: 12px" for="">Rieles</label>
                                             <div style="gap: 30px" class="d-flex justify-content-around">
