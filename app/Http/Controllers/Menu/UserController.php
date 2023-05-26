@@ -54,7 +54,8 @@ class UserController extends Controller
             'company_id'=>$request->company_id,
         ]);
         $User->yards()->attach($request->yard_id);
-       // $User->company()->attach($request->company_id);
+        // $User->company()->attach($request->company_id);
+
 
 
         return redirect()->route('menu.users.index')->with('info','Se registró el usuario correctamente');

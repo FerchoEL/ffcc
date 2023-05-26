@@ -24,7 +24,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                
+
             @endif
 
             <!-- Page Content -->
