@@ -74,10 +74,13 @@
                                                     <input type="text" name="name" value="{{$components[$track->id]['weight_rails_one']}} lbs/g" disabled class="mb-2 form-control">
                                                     <input type="text" name="name" value="{{$components[$track->id]['lenght_rails_one']}}" disabled class="form-control">
                                                 </div>
-                                                <div style="width: 45%" class="form-group">
-                                                    <label for="">Riel 2</label>
-                                                    <input type="text" name="name" value="{{$components[$track->id]['weight_rails_two']}} lbs/g" disabled class="mb-2 form-control">
-                                                    <input type="text" name="name" value="{{$components[$track->id]['lenght_rails_two']}}" disabled class="form-control">
+                                                <div style="width: 45%" x-data="{ weight_rails_two: '{{$components[$track->id]['weight_rails_two']}}'
+                                                ,lenght_rails_two: '{{$components[$track->id]['lenght_rails_two']}}'}" class="form-group">
+                                                    <div x-show="weight_rails_two !== null && weight_rails_two !== '' || lenght_rails_two !== null && lenght_rails_two !== ''" >
+                                                        <label for="">Riel 2</label>
+                                                        <input type="text" name="name" value="{{$components[$track->id]['weight_rails_two']}} lbs/g" disabled class="mb-2 form-control">
+                                                        <input type="text" name="name" value="{{$components[$track->id]['lenght_rails_two']}}" disabled class="form-control">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <label style="margin-left: 12px" for="">Rieles</label>

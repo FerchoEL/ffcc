@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('lenght_tracksleeper_two')->nullable();
             $table->string('weight_rails_one');
             $table->string('lenght_rails_one');
-            $table->string('weight_rails_two');
-            $table->string('lenght_rails_two');
+            $table->string('weight_rails_two')->nullable();
+            $table->string('lenght_rails_two')->nullable();
             $table->string('railroadswitch_interior');
             $table->string('railroadswitch_exterior');
             $table->unsignedBigInteger('track_id')->nullable()->unique();

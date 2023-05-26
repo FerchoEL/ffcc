@@ -66,12 +66,12 @@ class TrackController extends Controller
             'type_track' => 'required',
             'type_tracksleeper_one' => 'required',
             'lenght_tracksleeper_one' => 'required',
-/*                        'type_tracksleeper_two' => 'required',
-                        'lenght_tracksleeper_two' => 'required',*/
+/*          'type_tracksleeper_two' => 'required',
+            'lenght_tracksleeper_two' => 'required',*/
             'weight_rails_one' => 'required',
             'lenght_rails_one' => 'required',
-            'weight_rails_two' => 'required',
-            'lenght_rails_two' => 'required',
+            /*'weight_rails_two' => 'required',
+            'lenght_rails_two' => 'required',*/
             'railroadswitch_interior' => 'required',
             'railroadswitch_exterior' => 'required',
         ]);
@@ -145,8 +145,8 @@ class TrackController extends Controller
             'lenght_tracksleeper_two' => 'required',*/
             'weight_rails_one' => 'required',
             'lenght_rails_one' => 'required',
-            'weight_rails_two' => 'required',
-            'lenght_rails_two' => 'required',
+            /*'weight_rails_two' => 'required',
+            'lenght_rails_two' => 'required',*/
             'railroadswitch_interior' => 'required',
             'railroadswitch_exterior' => 'required',
         ]);
