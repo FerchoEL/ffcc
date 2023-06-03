@@ -7,6 +7,8 @@ use App\Models\Yard;
 use App\Models\Track;
 use App\Models\TrackSection;
 use App\Models\User;
+use App\Models\RailroadSwitch;
+use Carbon\Carbon;
 
 class InspectionForm extends Component
 {
@@ -14,6 +16,9 @@ class InspectionForm extends Component
 
     public function render()
     {
+        
+
+        $currentDateTime = Carbon::now();
         $user=User::find(auth()->id());
         $yards=$user->yards;
         foreach ($yards as $yard)
@@ -31,8 +36,10 @@ class InspectionForm extends Component
 
         if (!$this->selectedYard) {
             $tracks=Track::whereIn('yard_id',$yards_id)->pluck('name','id')->toArray();
+            $railroadswitches=RailroadSwitch::whereIn('yard_id',$yards_id)->pluck('name','id')->toArray();
         } else {
             $tracks=Track::track($this->selectedYard)->pluck('name','id')->toArray();
+            $railroadswitches=RailroadSwitch::switch($this->selectedYard)->pluck('name','id')->toArray();
 
         }
         $tracks_id=array_keys($tracks);
@@ -41,8 +48,7 @@ class InspectionForm extends Component
         } else {
             $tracksections=TrackSection::tracksection($this->selectedTrack)->pluck('name','id')->toArray();
         }
-
-
-        return view('livewire.inspection-form',compact('yards','tracks','tracksections'));
+        
+        return view('livewire.inspection-form',compact('yards','tracks','tracksections','railroadswitches','user','currentDateTime'));
     }
 }

@@ -12,6 +12,8 @@ use App\Models\Company;
 use App\Models\Yard;
 use App\Models\Track;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class InspectionController extends Controller
 {
@@ -22,7 +24,12 @@ class InspectionController extends Controller
      */
     public function index()
     {
-        $inspections = Inspection::all();
+       /*  $inspections = Inspection::join('yards','inspections.yard_id', '=' , 'yards.id')
+                                 ->join('companies','yards.id', '=' , 'companies.id')
+                                 ->select('inspections.*','yards.id','yards.company_id',  'companies.name')
+                                 ->get();  */  
+                                 $inspections = Inspection:: all();                                                                     
+        //return $inspections;
         return view('menu.inspections.index',compact('inspections'));
     }
 
@@ -44,22 +51,55 @@ class InspectionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        /* $request->validate([
-            'name' => 'required',
-        ]);
+    {   
+        /*         
         $inspection=Inspection::create([
             'name'=>$request->name,
             'user_id'=>$request->user_id,
-            'company_id'=>$request->company_id,
             'yard_id'=>$request->yard_id,
             'track_id'=>$request->track_id,
             'location_id'=>$request->location_id,
-//            'tracksection_id'=>$request->tracksection_id,
-        ]);
+//          'tracksection_id'=>$request->tracksection_id,
+        ]);*/
+        if($request->type_inspection == 0){
+            $inspection=Inspection::create([
+                'user_id'=>auth()->id(),
+                'yard_id'=>$request->yard_id,
+                'track_id'=>$request->track_id,
+                'tracksection_id'=>$request->tracksection_id,
+                'railroadswitch_id'=>null,
+                'date'=>$request->date,
+                'type_inspection'=>$request->type_inspection,
+                'comments'=>$request->comments,
+                'condition'=>$request->condition,
+                'priority'=>$request->priority  
+            ]); 
+        }
+        if($request->type_inspection == 1){
+            $inspection=Inspection::create([
+                'user_id'=>auth()->id(),
+                'yard_id'=>$request->yard_id,
+                'track_id'=>null,
+                'tracksection_id'=>null,
+                'railroadswitch_id'=>$request->railroadswitch_id,
+                'date'=>$request->date,
+                'type_inspection'=>$request->type_inspection,
+                'comments'=>$request->comments,
+                'condition'=>$request->condition,
+                'priority'=>$request->priority  
+            ]); 
+        }
+        
+        if ($request->file('file')) {
+            $url= Storage::put('images', $request->file('file'));
+            $inspection->image()->create([
+                'url'=>$url
+            ]);
 
+        }
 
-        return redirect()->route('menu.inspections.index')->with('info','Se registró el tramo satifactoriamente'); */
+        return redirect()->route('menu.inspections.create')->with('info','Se registró  satifactoriamente'); 
+       
     }
 
     /**

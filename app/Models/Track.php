@@ -15,7 +15,6 @@ class Track extends Model
         if($selectedYard){
             return $query->where('yard_id', $selectedYard);
         }
-
     }
 
     //Relacion inversa uno a muchos

@@ -11,6 +11,7 @@ use App\Models\Track;
 use App\Models\User;
 use App\Models\Yard;
 use App\Models\TrackSection;
+use App\Models\RailroadSwitch;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -32,8 +33,6 @@ class UserSeeder extends Seeder
         }
         $locations=Location::all();
 
-
-
         foreach($locations as $location){
             Company::factory(2)->create([
                 'location_id'=>$location->id
@@ -41,7 +40,6 @@ class UserSeeder extends Seeder
         }
         $companies=Company::all();
         User::create([
-
             'name' => 'Administrador',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin123'),
@@ -52,9 +50,6 @@ class UserSeeder extends Seeder
 
         // $locations=Location::factory(10)->create();
         //$locations=['Aguascalientes', 'Baja California', 'Baja California Sur', 'Campeche', 'Chiapas', 'Chihuahua', 'Coahuila', 'Colima', 'Distrito Federal', 'Durango', 'Guanajuato', 'Guerrero', 'Hidalgo', 'Jalisco', 'México', 'Michoacán', 'Morelos', 'Nayarit', 'Nuevo León', 'Oaxaca', 'Puebla', 'Querétaro', 'Quintana Roo', 'San Luis Potosí', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas', 'Tlaxcala', 'Veracruz', 'Yucatán', 'Zacatecas'];
-
-
-
 
         foreach ($locations as $location) {
             Yard::factory(2)->create([
@@ -68,32 +63,27 @@ class UserSeeder extends Seeder
             $tracks=Track::factory(3)->create([
                 'yard_id'=>$yard->id
             ]);
+            $railroadswitch=RailroadSwitch::factory(3)->create([
+                'yard_id'=>$yard->id
+            ]);
         }
         foreach ($companies as $company) {
             $company->users()->attach(User::all()->random()->id);
             $company->users()->attach(User::all()->random()->id);
             $company->users()->attach(User::all()->random()->id);
-
-
         }
         foreach ($users as $user){
-
             $user->yards()->attach(Yard::all()->random()->id);
             $user->yards()->attach(Yard::all()->random()->id);
-
         }
-
-
 
         $CarTypes=['A','B','C'];
         foreach ($CarTypes as $CarType) {
-            /* CarType::create([
-                'name' => $CarType,
-            ]); */
             CarType::factory(1)->create([
                 'name' => $CarType,
             ]);
         }
+
         $tracks=Track::all();
         foreach ($tracks as $track) {
             ComponentTrack::factory(1)->create([

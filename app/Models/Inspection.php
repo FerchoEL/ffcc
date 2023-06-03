@@ -27,10 +27,20 @@ class Inspection extends Model
     public function track(){
         return $this->belongsTo('App\Models\Track');
     }
+    public function tracksection(){
+        return $this->belongsTo('App\Models\TrackSection');
+    }
+    public function railroadswitch(){
+        return $this->belongsTo('App\Models\RailroadSwitch');
+    }
     public function location(){
         return $this->belongsTo('App\Models\Location');
     }
     /*public function tracksection(){
         return $this->belongsTo('App\Models\TrackSection');
     }*/
+    //Relacion polimortica uno a uno
+    public function image(){
+        return $this->morphOne(image::class,'imageable');
+    }
 }

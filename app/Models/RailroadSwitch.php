@@ -10,6 +10,13 @@ class RailroadSwitch extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    public function scopeSwitch($query,$selectedYard)
+    {
+        if($selectedYard){
+            return $query->where('yard_id', $selectedYard);
+        }
+    }
+
 
     //Relacion inversa uno a muchos
     public function yard(){

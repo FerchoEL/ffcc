@@ -23,6 +23,15 @@ return new class extends Migration
             $table->foreign('track_id')->references('id')->on('tracks')->onDelete('SET NULL');
             $table->unsignedBigInteger('tracksection_id')->nullable();
             $table->foreign('tracksection_id')->references('id')->on('track_sections')->onDelete('SET NULL');
+            $table->unsignedBigInteger('railroadswitch_id')->nullable();
+            $table->foreign('railroadswitch_id')->references('id')->on('railroad_switches')->onDelete('SET NULL');
+            $table->dateTime('date');
+            $table->integer('type_inspection');
+            $table->text('comments')->nullable();
+            $table->integer('condition');
+            $table->integer('priority');
+            //$table->integer('status');
+            $table->integer('activo')->default(1);
             
             $table->timestamps();
         });
