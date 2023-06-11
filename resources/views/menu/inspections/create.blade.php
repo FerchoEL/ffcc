@@ -33,6 +33,16 @@
             width: 100%;
             height: 100%;
         }
+        @media (min-width: 576px) {
+            .etiqueta-movil {
+                display: none;
+            }
+        }
+        @media (max-width: 577px) {
+            .etiqueta-escritorio {
+                display: none;
+            }
+        }
     </style>
 @stop
 

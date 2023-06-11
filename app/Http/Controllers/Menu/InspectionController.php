@@ -52,15 +52,9 @@ class InspectionController extends Controller
      */
     public function store(Request $request)
     {   
+        return $request;
         /*         
-        $inspection=Inspection::create([
-            'name'=>$request->name,
-            'user_id'=>$request->user_id,
-            'yard_id'=>$request->yard_id,
-            'track_id'=>$request->track_id,
-            'location_id'=>$request->location_id,
-//          'tracksection_id'=>$request->tracksection_id,
-        ]);*/
+        
         if($request->type_inspection == 0){
             $inspection=Inspection::create([
                 'user_id'=>auth()->id(),
@@ -99,7 +93,7 @@ class InspectionController extends Controller
         }
 
         return redirect()->route('menu.inspections.create')->with('info','Se registró  satifactoriamente'); 
-       
+       */
     }
 
     /**

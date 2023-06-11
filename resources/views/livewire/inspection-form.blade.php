@@ -78,44 +78,69 @@
             {!! Form::select('railroadswitch_id', [0 => 'Selecciona una opción'] + $railroadswitches, '0', ['id' => 'railroadswitch_id','class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="row">
-        <div class="form-group col-12 col-sm-4">
-            <strong>Condición</strong>
-            @error('yards')
-            <small class="text-danger">
-                <strong>{{$message}}</strong>
-            </small>
-            @enderror
-            <div class="row">
-                <div class="form-group col-6">
-                    {!! Form::radio('condition', '0', true) !!}
-                    {!! Form::label('condition', 'OK') !!}
-                </div>
-                <div class="form-group col-6">
-                    {!! Form::radio('condition', '1') !!}
-                    {!! Form::label('condition', 'BO') !!}
-                </div>                 
-            </div>
-                   
-        </div>
-        <div class="form-group col-12 col-sm-4">
-            <strong>Prioridad</strong>
+    <div x-data="{ mostrarSeccion: '0' }"  >
+        <div class="row">
+            <div class="form-group col-12 col-sm-4">
+                <strong>Condición</strong>
+                <div class="row">
+                    <div class="form-group col-6">
+                        {!! Form::radio('condition', '0', true,['x-model' => 'mostrarSeccion','id'=>'conditionOK']) !!}
+                       
+                        {!! Form::label('condition', 'OK') !!}
+                    </div>
                     
-            {!! Form::select('priority', [1 => 'Baja',2=> 'Medio',3 => 'Critica']  , null, ['class' => 'form-control']) !!}
-        </div>        
-    </div>
-    <div class="row">
-        <div class="form-group col-12 col-sm-12">
-            <strong>Detalle</strong>
-            @error('yards')
-            <small class="text-danger">
-                <strong>{{$message}}</strong>
-            </small>
-            @enderror
-            {!! Form::textarea('comments', null, ['class' => 'form-control','rows' => 5]); !!}
+                    <div class="form-group col-6">
+                        {!! Form::radio('condition', '1',false,['x-model' => 'mostrarSeccion','id'=>'conditionBO']) !!}
+                        {!! Form::label('condition', 'BO') !!}
+                    </div>                 
+                </div>                   
+            </div>
+            <div class="form-group col-12 col-sm-4">
+            </div>   
+            <div class="form-group col-12 col-sm-4">
+            </div>       
+        </div>   
+        <div class="row p-5" x-show="mostrarSeccion === '1'"   x-data="{ conjuntos: [{ defecto: '', priorities: '', comments: '' }] }" >
+            <div class="col-12"  >
+                <div class="row" name="primera-fila">
+                    <div class="form-group col-12 col-sm-4">
+                        <label class="etiqueta-escritorio" for="priorities">Defecto</label>
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                        <label class="etiqueta-escritorio" for="priorities">Prioridad</label>
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                        <label class="etiqueta-escritorio" for="priorities">Comentario</label>
+                    </div>
+                </div>
+                <template x-for="(conjunto, index) in conjuntos" :key="index" >                
+                    <div class="row">
+                        <!-- Agrega aquí los elementos select y el campo de comments -->
+                        <div class="form-group col-12 col-sm-4">
+                            
+                            <label class="etiqueta-movil" x-text="'Defecto ' + (index + 1)" for="defecto"></label>
+                            {!! Form::select('defecto[]', [0 => 'Selecciona una opción',1 => 'Defecto 1',2 => 'Defecto 2',3 => 'Defecto 3'] , '0', ['id' => 'defectos_id','class' => 'form-control','x-model'=>'conjunto.defecto']) !!}
+                            
+                        </div>
+                        <div class="form-group col-12 col-sm-4">
+                            <label class="etiqueta-movil" x-text="'Proridad ' + (index + 1)" for="priorities"></label>
+
+                            {!! Form::select('priorities[]', [0 => 'Selecciona una opción',1 => 'Baja',2 => 'Media',3 => 'Alta'] , '0', ['id' => 'priority_id','class' => 'form-control','x-model'=>'conjunto.priorities']) !!} 
+                        </div>
+                        <div class="form-group col-12 col-sm-4">
+                            <label class="etiqueta-movil" for="comments">Comentario</label>
+                            {{ Form::text('comments[]', null, ['class' => 'form-control','x-model'=>'conjunto.comments']) }}
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+                <button @click="conjuntos.push({ defecto: '', priorities: '', comments: '' })" class="btn btn-success">Agregar defecto <i class='fas fa-plus-circle'></i></button>
+            </div>     
         </div>
-        
     </div>
+    
+
     <div class="row">
         <div class="form-group col-12 col-sm-4">
             {!! Form::label('file', 'Evidencia gráfica (opcional)'); !!}
@@ -127,4 +152,41 @@
             </div>
         </div>
     </div>
+
+ 
+
+    {{--
+        <div class="row">
+        <div class="form-group col-12 col-sm-12">
+            <strong>Detalle</strong>
+            @error('yards')
+            <small class="text-danger">
+                <strong>{{$message}}</strong>
+            </small>
+            @enderror
+            {!! Form::textarea('comments', null, ['class' => 'form-control','rows' => 5]); !!}
+        </div>        
+    </div>
+        Estos campos se envian por separado
+    <div class="row">
+        <div x-data="{ conjuntos: [{ select1: '', select2: '', texto: '' }], contador: 1 }">
+            <template x-for="(conjunto, index) in conjuntos" :key="index">
+                <div>
+                    <!-- Agrega aquí los elementos select y el campo de texto -->
+                    <select :name="'selectA' + (index + 1)" x-model="conjunto.select1">
+                        <option value="opcion1">Opción 1</option>
+                    </select>
+                    <select :name="'selectB' + (index + 1)" x-model="conjunto.select2">
+                        <option value="opcion2">Opción 2</option>
+                    </select>
+                    <input type="text" :name="'textoC' + (index + 1)" x-model="conjunto.texto">
+                </div>
+            </template>
+        
+            <button @click="conjuntos.push({ select1: '', select2: '', texto: '' }); contador++">Agregar</button>
+        </div>
+        
+    </div>  
+    --}}
+
 </div>
