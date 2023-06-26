@@ -17,7 +17,7 @@
         <div class="card-header">
             <a href="{{route('menu.initials.create')}}" class="btn btn-primary">Registar iniciales</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -32,7 +32,7 @@
                             <td>{{$initial->id}}</td>
                             <td>{{$initial->name}}</td>
                             <td width='10px'><a class="btn btn-secondary" href={{route('menu.initials.edit',$initial)}}>Editar</a></td>
-                            
+
                         </tr>
                     @empty
                         <tr>

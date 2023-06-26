@@ -369,6 +369,12 @@ return [
             'icon'        => 'fas fa-fw fa-random',
             'active'        =>['menu/railroadswitches*']
         ],
+        [
+            'text'        => 'Catálogo de componentes',
+            'route'         => 'menu.componentcatalogs.index',
+            'icon'        => 'fas fa-fw fa-random',
+            'active'        =>['menu/componentcatalogs*']
+        ],
         ['header' => '',],
         [
             'text'        => 'Inspecciones',
@@ -382,19 +388,19 @@ return [
             'route'         => 'menu.inspections.create',
             'icon'        => 'fas fa-fw fa-user-secret',
         ],
-        /*
-        [
+
+        /*[
             'text'       => 'important',
             'icon_color' => 'red',
             'url'        => '#',
-        ],
+        ],*/
         [
             'text'        => 'Listas de correo',
             'route'         => 'menu.emails.index',
             'icon'        => 'fas fa-fw fa-envelope-open',
             'active'        =>['menu/emails*']
         ],
-        */
+
         ['header' => '',],
         ['header' => 'CONFIGURACIÓN DE CUENTA'],
         [

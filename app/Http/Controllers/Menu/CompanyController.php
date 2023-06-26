@@ -21,7 +21,7 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $companies = Company::all();
+        $companies = Company::paginate(8);
         return view('menu.companies.index',compact('companies'));
     }
 
@@ -80,7 +80,7 @@ class CompanyController extends Controller
     public function edit(Company $company)
     {
         $locations=Location::pluck('name','id')->toArray();
-        return view('menu.companies.edit',compact('company','locations'));
+        return view('menu.companies.index',compact('company','locations'));
     }
 
     /**

@@ -18,7 +18,7 @@ class TrackSectionController extends Controller
      */
     public function index()
     {
-        $tracksections = TrackSection::all();
+        $tracksections = TrackSection::paginate(8);
         return view('menu.tracksections.index',compact('tracksections'));
     }
 

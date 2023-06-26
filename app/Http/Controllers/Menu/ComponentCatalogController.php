@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Menu;
+namespace App\Http\Controllers\menu;
 
 use App\Http\Controllers\Controller;
-use App\Models\Location;
+use App\Models\ComponentCatalog;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+class ComponentCatalogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::withCount('yards')->paginate(8);
-        /*$locations = Location::paginate(8);*/
-
-        return view('menu.locations.index',compact('locations'));
+        $componentcatalogs = ComponentCatalog::paginate(8);
+        return view('menu.componentcatalogs.index',compact('componentcatalogs'));
     }
 
     /**
@@ -28,7 +26,8 @@ class LocationController extends Controller
      */
     public function create()
     {
-        return view('menu.locations.create');
+        $route = 'create';
+        return view('menu.componentcatalogs.create',compact('route'));
     }
 
     /**
@@ -41,15 +40,16 @@ class LocationController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'type_component'=> 'required',
 
         ]);
-        $location=Location::create([
+        $componentcatalogs=ComponentCatalog::create([
             'name' => $request->name,
-
+            'type_component' => $request->type_component,
         ]);
 
 
-        return redirect()->route('menu.locations.index')->with('info','Se registró la empresa satifactoriamente');
+        return redirect()->route('menu.componentcatalogs.index')->with('info','Se registró el componente correctamente');
     }
 
     /**
@@ -58,9 +58,9 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Location $location)
+    public function show($id)
     {
-        return view('menu.locations.show',compact('location'));
+        //
     }
 
     /**
@@ -69,9 +69,11 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Location $location)
+    public function edit(ComponentCatalog $componentcatalog)
     {
-        return view('menu.locations.edit',compact('location'));
+        $route = 'edit';
+        return view('menu.componentcatalogs.edit',compact('route','componentcatalog'));
+
     }
 
     /**
@@ -81,18 +83,18 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $location)
+    public function update(Request $request, ComponentCatalog $componentcatalog)
     {
         $request->validate([
             'name' => 'required',
-
+            'type_component' => 'required'
         ]);
-        $location->update([
+        $componentcatalog->update([
             'name' => $request->name,
-
+            'type_component' => $request->type_component
         ]);
 
-        return redirect()->route('menu.locations.edit',$location)->with('info','se actualizó satifactoriamente');
+        return redirect()->route('menu.componentcatalogs.index',$componentcatalog)->with('info','Se actualizó el componente correctamente');
     }
 
     /**
@@ -101,8 +103,9 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ComponentCatalog $componentcatalog)
     {
-        //
+        $componentcatalog->delete();
+        return redirect()->route('menu.componentcatalogs.index')->with('info','Se eliminó el componente correctamente');
     }
 }

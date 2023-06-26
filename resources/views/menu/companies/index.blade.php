@@ -17,7 +17,7 @@
         <div class="card-header">
             <a href="{{route('menu.companies.create')}}" class="btn btn-primary">Registar empresa</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -51,7 +51,9 @@
                     @endforelse
                 </tbody>
             </table>
-
+            <div class="mt-4">
+                {{$companies->links()}}
+            </div>
         </div>
     </div>
 @stop

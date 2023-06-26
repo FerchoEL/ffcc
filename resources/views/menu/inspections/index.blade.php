@@ -17,7 +17,7 @@
         {{--<div class="card-header">
             <a href="{{route('menu.inspections.create')}}" class="btn btn-primary">Registrar Tramo</a>
         </div>--}}
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table style="text-align: center" class="table table-striped">
                 <thead>
                 <tr>
@@ -33,26 +33,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                    
+
                 @forelse ($inspections as $inspection)
                     <tr>
                         <td>{{$inspection->id}}</td>
                         <td>{{$inspection->user->name}}</td>
                         <td>{{$inspection->yard->company->name}}</td>
                         @if ($inspection->type_inspection==0)
-                        <td>Inspeccion de Vía</td>   
+                        <td>Inspeccion de Vía</td>
                         @else
-                        <td>Inspeccion de Herraje</td>    
+                        <td>Inspeccion de Herraje</td>
                         @endif
                         <td>{{$inspection->yard->name}}</td>
                         @if ($inspection->track_id)
                         <td>{{$inspection->track->name}}</td>
                         <td>{{$inspection->tracksection->name}}</td>
                         @else
-                        <td>{{$inspection->railroadswitch->name}}</td>  
+                        <td>{{$inspection->railroadswitch->name}}</td>
                         <td></td>
                         @endif
-                       {{--    <td>{{$inspection->yard->location->name}}</td>  --}}  
+                       {{--    <td>{{$inspection->yard->location->name}}</td>  --}}
                         <td width='10px'><a class="btn btn-secondary" href={{route('menu.inspections.edit',$inspection)}}>Editar</a></td>
                         <td width='10px'>
                             <form action="{{route('menu.inspections.destroy',$inspection)}}" method="post">
@@ -66,7 +66,7 @@
                         @else
                         <td> Sin foto</td>
                         @endif  --}}
-                        
+
                     </tr>
                 @empty
                     <tr>
@@ -75,12 +75,15 @@
                 @endforelse
                 </tbody>
             </table>
+            <div class="mt-4">
+                {{$inspections->links()}}
+            </div>
         </div>
     </div>
 @stop
 
 @section('css')
-    
+
 @stop
 
 @section('js')

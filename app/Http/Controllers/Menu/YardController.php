@@ -17,7 +17,7 @@ class YardController extends Controller
      */
     public function index()
     {
-        $yards = Yard::withCount('tracks')->get();
+        $yards = Yard::withCount('tracks')->paginate(8);
         return view('menu.yards.index',compact('yards'));
     }
 

@@ -17,7 +17,7 @@
         <div class="card-header">
             <a href="{{route('menu.railroadswitches.create')}}" class="btn btn-primary">Registrar Herraje</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -51,6 +51,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="mt-4">
+                {{$railroadSwitches->links()}}
+            </div>
         </div>
     </div>
 @stop

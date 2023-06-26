@@ -16,7 +16,7 @@ class RailroadSwitchController extends Controller
      */
     public function index()
     {
-        $railroadSwitches = RailroadSwitch::all();
+        $railroadSwitches = RailroadSwitch::paginate(8);
         return view('menu.railroadswitches.index',compact('railroadSwitches'));
     }
 
@@ -27,7 +27,7 @@ class RailroadSwitchController extends Controller
      */
     public function create()
     {
-        $yards=Yard::pluck('name','id')->toArray();       
+        $yards=Yard::pluck('name','id')->toArray();
         return view('menu.railroadswitches.create',compact('yards'));
     }
 
@@ -41,14 +41,14 @@ class RailroadSwitchController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+
         ]);
         $railroadSwitch=RailroadSwitch::create([
             'name' => $request->name,
             'type_switch' => $request->type_switch,
             'yard_id'=>$request->yard_id,
-            
-            
+
+
         ]);
         //comentario de prueba local
         return redirect()->route('menu.railroadswitches.index')->with('info','Se registró el herraje correctamente');
@@ -73,8 +73,8 @@ class RailroadSwitchController extends Controller
      */
     public function edit(RailroadSwitch $railroadswitch)
     {
-        $yards=Yard::pluck('name','id')->toArray();       
-        return view('menu.railroadswitches.edit',compact('railroadswitch','yards')); 
+        $yards=Yard::pluck('name','id')->toArray();
+        return view('menu.railroadswitches.edit',compact('railroadswitch','yards'));
     }
 
     /**
@@ -89,14 +89,14 @@ class RailroadSwitchController extends Controller
         $request->validate([
             'name' => 'required',
             'type_switch' => 'required',
-            'yard_id' => 'required'            
-        ]);    
-         $railroadswitch->update([
-            'name' => $request->name, 
-            'type_switch' => $request->type_switch,
-            'yard_id'=>$request->yard_id  
+            'yard_id' => 'required'
         ]);
-    
+         $railroadswitch->update([
+            'name' => $request->name,
+            'type_switch' => $request->type_switch,
+            'yard_id'=>$request->yard_id
+        ]);
+
       return redirect()->route('menu.railroadswitches.edit',$railroadswitch)->with('info','Se actualizó el herraje correctamente');
     }
 

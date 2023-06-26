@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        $locations=['Veracruz','Hermosillo','Hidalgo','Coahuila'];
+        $locations=['Veracruz','Hermosillo','Hidalgo','Coahuila', 'Monterrey', 'Chiapas', 'Tijuana', 'CDMX', 'San Luis Potosí', 'Oaxaca'];
         foreach ($locations as $location) {
             Location::create([
                 'name' => $location,
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
         $locations=Location::all();
 
         foreach($locations as $location){
-            Company::factory(2)->create([
+            Company::factory(10)->create([
                 'location_id'=>$location->id
             ]);
         }
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
         //$locations=['Aguascalientes', 'Baja California', 'Baja California Sur', 'Campeche', 'Chiapas', 'Chihuahua', 'Coahuila', 'Colima', 'Distrito Federal', 'Durango', 'Guanajuato', 'Guerrero', 'Hidalgo', 'Jalisco', 'México', 'Michoacán', 'Morelos', 'Nayarit', 'Nuevo León', 'Oaxaca', 'Puebla', 'Querétaro', 'Quintana Roo', 'San Luis Potosí', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas', 'Tlaxcala', 'Veracruz', 'Yucatán', 'Zacatecas'];
 
         foreach ($locations as $location) {
-            Yard::factory(2)->create([
+            Yard::factory(5)->create([
                 'company_id'=>$companies[rand(1,count($companies)-1)]->id,
                 'location_id'=>$location->id
             ]);

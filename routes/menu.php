@@ -14,6 +14,7 @@ use App\Http\Controllers\Menu\YardController;
 use App\Http\Controllers\Menu\RailroadSwitchController;
 use App\Http\Controllers\Menu\TrackSectionController;
 use App\Http\Controllers\Menu\InspectionController;
+use App\Http\Controllers\Menu\ComponentCatalogController;
 
 Route::get('', [HomeController::class, 'index'])->name('home');
 Route::resource('roles',RoleController::class)->names('roles');
@@ -28,3 +29,4 @@ Route::resource('initials',InitialController::class)->names('initials');
 Route::resource('railroadswitches',RailroadSwitchController::class)->names('railroadswitches');
 Route::resource('tracksections',TrackSectionController::class)->names('tracksections');
 Route::resource('inspections',InspectionController::class)->names('inspections');
+Route::resource('componentcatalogs',ComponentCatalogController::class)->names('componentcatalogs');

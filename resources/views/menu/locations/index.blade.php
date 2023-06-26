@@ -17,7 +17,7 @@
         <div class="card-header">
             <a href="{{route('menu.locations.create')}}" class="btn btn-primary">Registar ubicación</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table style="text-align: center" class="table table-striped">
                 <thead>
                     <tr>
@@ -49,6 +49,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="mt-4">
+                {{$locations->links()}}
+            </div>
         </div>
     </div>
 @stop

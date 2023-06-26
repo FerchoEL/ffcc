@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\ComponentCatalog;
 use Livewire\Component;
 use App\Models\Yard;
 use App\Models\Track;
@@ -12,11 +13,11 @@ use Carbon\Carbon;
 
 class InspectionForm extends Component
 {
-    public $selectedYard , $selectedTrack;
+    public $selectedYard , $selectedTrack , $selectedComponent='1';
 
     public function render()
     {
-        
+
 
         $currentDateTime = Carbon::now();
         $user=User::find(auth()->id());
@@ -48,7 +49,14 @@ class InspectionForm extends Component
         } else {
             $tracksections=TrackSection::tracksection($this->selectedTrack)->pluck('name','id')->toArray();
         }
-        
-        return view('livewire.inspection-form',compact('yards','tracks','tracksections','railroadswitches','user','currentDateTime'));
+
+        if (!$this->selectedComponent) {
+            $components=ComponentCatalog::whereIn('type_component',0)->pluck('name','id')->toArray();
+        } else{
+            $components=ComponentCatalog::component($this->selectedComponent)->pluck('name','id')->toArray();
+        }
+//        $components=ComponentCatalog::component($this->selectedComponent)->pluck('name','id')->toArray();
+
+        return view('livewire.inspection-form',compact('yards','tracks','tracksections','railroadswitches','components','user','currentDateTime'));
     }
 }

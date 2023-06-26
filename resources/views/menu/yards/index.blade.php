@@ -17,7 +17,7 @@
         <div class="card-header">
             <a href="{{route('menu.yards.create')}}" class="btn btn-primary">Registrar patio</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table style="text-align: center" class="table table-striped">
                 <thead>
                     <tr>
@@ -55,6 +55,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="mt-4">
+                {{$yards->links()}}
+            </div>
         </div>
     </div>
 @stop

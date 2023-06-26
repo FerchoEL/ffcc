@@ -17,7 +17,7 @@
         <div class="card-header">
             <a href="{{route('menu.roles.create')}}" class="btn btn-primary">Registrar Rol</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -47,6 +47,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div class="mt-4">
+                {{$roles->links()}}
+            </div>
         </div>
     </div>
 @stop

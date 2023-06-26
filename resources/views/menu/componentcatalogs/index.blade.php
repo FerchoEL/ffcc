@@ -4,9 +4,8 @@
 
 
 @section('content_header')
-    <h1>Tramos</h1>
+    <h1>Catálogo de componentes</h1>
 @stop
-
 @section('content')
     @if (session('info'))
         <div class="alert alert-success" role="alert">
@@ -15,27 +14,27 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <a href="{{route('menu.tracksections.create')}}" class="btn btn-primary">Registrar Tramo</a>
+            <a href="{{route('menu.componentcatalogs.create')}}" class="btn btn-primary">Registrar componente</a>
         </div>
         <div class="card-body table-responsive">
-            <table style="text-align: center" class="table table-striped">
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Vía</th>
+                    <th>Nombre del componente</th>
+                    <th>tipo del componente</th>
                     <th colspan="2"></th>
                 </tr>
                 </thead>
                 <tbody>
-                @forelse ($tracksections as $tracksection)
+                @forelse ($componentcatalogs as $componentcatalog)
                     <tr>
-                        <td>{{$tracksection->id}}</td>
-                        <td>{{$tracksection->name}}</td>
-                        <td>{{$tracksection->track->name}}</td>
-                        <td width='10px'><a class="btn btn-secondary" href={{route('menu.tracksections.edit',$tracksection)}}>Editar</a></td>
+                        <td>{{$componentcatalog->id}}</td>
+                        <td>{{$componentcatalog->name}}</td>
+                        <td>{{$componentcatalog->type_component === '1' ? 'Vía' : 'Herraje'}}</td>
+                        <td width='10px'><a class="btn btn-secondary" href={{route('menu.componentcatalogs.edit',$componentcatalog)}}>Editar</a></td>
                         <td width='10px'>
-                            <form action="{{route('menu.tracksections.destroy',$tracksection)}}" method="post">
+                            <form action="{{route('menu.componentcatalogs.destroy',$componentcatalog)}}" method="post">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger" type="submit">Eliminar</button>
@@ -44,13 +43,13 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4">No hay ningún rol registrado</td>
+                        <td colspan="3">No hay ningun componente registrada</td>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
             <div class="mt-4">
-                {{$tracksections->links()}}
+                {{$componentcatalogs->links()}}
             </div>
         </div>
     </div>

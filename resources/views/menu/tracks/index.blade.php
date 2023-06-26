@@ -17,7 +17,7 @@
         <div class="card-header">
             <a href="{{route('menu.tracks.create')}}" class="btn btn-primary">Registrar Vía</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>

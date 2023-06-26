@@ -27,8 +27,8 @@ class InspectionController extends Controller
        /*  $inspections = Inspection::join('yards','inspections.yard_id', '=' , 'yards.id')
                                  ->join('companies','yards.id', '=' , 'companies.id')
                                  ->select('inspections.*','yards.id','yards.company_id',  'companies.name')
-                                 ->get();  */  
-                                 $inspections = Inspection:: all();                                                                     
+                                 ->get();  */
+                                 $inspections = Inspection:: paginate(8);
         //return $inspections;
         return view('menu.inspections.index',compact('inspections'));
     }
@@ -41,7 +41,7 @@ class InspectionController extends Controller
     public function create()
     {
         return view('menu.inspections.create');
-  
+
     }
 
     /**
@@ -51,11 +51,12 @@ class InspectionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         return $request;
-        /*         
-        
-        if($request->type_inspection == 0){
+
+
+
+        if($request->type_inspection == 1){
             $inspection=Inspection::create([
                 'user_id'=>auth()->id(),
                 'yard_id'=>$request->yard_id,
@@ -66,10 +67,10 @@ class InspectionController extends Controller
                 'type_inspection'=>$request->type_inspection,
                 'comments'=>$request->comments,
                 'condition'=>$request->condition,
-                'priority'=>$request->priority  
-            ]); 
+                'priority'=>$request->priority
+            ]);
         }
-        if($request->type_inspection == 1){
+        if($request->type_inspection == 2){
             $inspection=Inspection::create([
                 'user_id'=>auth()->id(),
                 'yard_id'=>$request->yard_id,
@@ -80,10 +81,10 @@ class InspectionController extends Controller
                 'type_inspection'=>$request->type_inspection,
                 'comments'=>$request->comments,
                 'condition'=>$request->condition,
-                'priority'=>$request->priority  
-            ]); 
+                'priority'=>$request->priority
+            ]);
         }
-        
+
         if ($request->file('file')) {
             $url= Storage::put('images', $request->file('file'));
             $inspection->image()->create([
@@ -92,8 +93,8 @@ class InspectionController extends Controller
 
         }
 
-        return redirect()->route('menu.inspections.create')->with('info','Se registró  satifactoriamente'); 
-       */
+        return redirect()->route('menu.inspections.create')->with('info','Se registró  satifactoriamente');
+
     }
 
     /**
