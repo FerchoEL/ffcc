@@ -27,12 +27,21 @@ return new class extends Migration
             $table->foreign('railroadswitch_id')->references('id')->on('railroad_switches')->onDelete('SET NULL');
             $table->dateTime('date');
             $table->integer('type_inspection');
-            $table->text('comments')->nullable();
             $table->integer('condition');
-            $table->integer('priority');
+/*            $table->text('comments')->nullable();
+            $table->integer('priority');*/
             //$table->integer('status');
             $table->integer('activo')->default(1);
-            
+
+            $table->timestamps();
+        });
+        Schema::create('defect_tracks', function (Blueprint $table){
+            $table->id();
+            $table->string('defect');
+            $table->string('priority');
+            $table->string('comment');
+            $table->unsignedBigInteger('inspection_id')->nullable();
+            $table->foreign('inspection_id')->references('id')->on('inspections')->onDelete('SET NULL');
             $table->timestamps();
         });
     }

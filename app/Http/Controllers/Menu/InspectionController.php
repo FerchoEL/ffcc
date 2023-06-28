@@ -52,9 +52,8 @@ class InspectionController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
 
-
+//       return $request;
 
         if($request->type_inspection == 1){
             $inspection=Inspection::create([
@@ -65,9 +64,7 @@ class InspectionController extends Controller
                 'railroadswitch_id'=>null,
                 'date'=>$request->date,
                 'type_inspection'=>$request->type_inspection,
-                'comments'=>$request->comments,
                 'condition'=>$request->condition,
-                'priority'=>$request->priority
             ]);
         }
         if($request->type_inspection == 2){
@@ -79,10 +76,18 @@ class InspectionController extends Controller
                 'railroadswitch_id'=>$request->railroadswitch_id,
                 'date'=>$request->date,
                 'type_inspection'=>$request->type_inspection,
-                'comments'=>$request->comments,
                 'condition'=>$request->condition,
-                'priority'=>$request->priority
             ]);
+        }
+        if ($request->condition == 1){
+            $count = count($request->defecto);
+            for ($i = 0; $i < $count; $i++){
+                $inspection->defect_track()->create([
+                    'defect'=>$request->defecto[$i],
+                    'priority'=>$request->priorities[$i],
+                    'comment'=>$request->comments[$i]
+                ]);
+            }
         }
 
         if ($request->file('file')) {

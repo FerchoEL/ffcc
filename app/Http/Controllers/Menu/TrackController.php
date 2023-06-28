@@ -19,6 +19,7 @@ class TrackController extends Controller
     {
         //$tracks = Track::all();
         $tracks = Track::paginate(8);
+
 //        $components = ComponentTrack::all()->toArray()->keyBy('id');
         $components = ComponentTrack::all()->reduce(function ($carry, $item) {
             $carry[$item->id] = [

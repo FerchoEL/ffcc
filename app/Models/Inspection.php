@@ -36,6 +36,9 @@ class Inspection extends Model
     public function location(){
         return $this->belongsTo('App\Models\Location');
     }
+    public function defect_track(){
+        return $this->hasOne('App\Models\DefectTrack');
+    }
     /*public function tracksection(){
         return $this->belongsTo('App\Models\TrackSection');
     }*/
@@ -43,4 +46,5 @@ class Inspection extends Model
     public function image(){
         return $this->morphOne(image::class,'imageable');
     }
+
 }

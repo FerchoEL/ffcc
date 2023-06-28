@@ -402,6 +402,13 @@ return [
         ],
 
         ['header' => '',],
+        ['header' => 'VISTAS USUARIOS'],
+        [
+            'text' => 'Tarjeta Vías',
+            'route'  => 'menu.cardtracks.index',
+            'icon' => 'fas fa-fw fa-user',
+            'active'        =>['menu/cardtracks*']
+        ],
         ['header' => 'CONFIGURACIÓN DE CUENTA'],
         [
             'text' => 'Mi cuenta',

@@ -15,6 +15,7 @@ use App\Http\Controllers\Menu\RailroadSwitchController;
 use App\Http\Controllers\Menu\TrackSectionController;
 use App\Http\Controllers\Menu\InspectionController;
 use App\Http\Controllers\Menu\ComponentCatalogController;
+use App\Http\Controllers\Menu\CardTrackController;
 
 Route::get('', [HomeController::class, 'index'])->name('home');
 Route::resource('roles',RoleController::class)->names('roles');
@@ -30,3 +31,4 @@ Route::resource('railroadswitches',RailroadSwitchController::class)->names('rail
 Route::resource('tracksections',TrackSectionController::class)->names('tracksections');
 Route::resource('inspections',InspectionController::class)->names('inspections');
 Route::resource('componentcatalogs',ComponentCatalogController::class)->names('componentcatalogs');
+Route::resource('cardtracks',CardTrackController::class)->names('cardtracks');
