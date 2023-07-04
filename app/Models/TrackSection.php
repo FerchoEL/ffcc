@@ -22,4 +22,8 @@ class TrackSection extends Model
     public function track(){
         return $this->belongsTo('App\Models\Track');
     }
+
+    public function inspections(){
+        return $this->hasMany('App\Models\Inspection','tracksection_id');
+    }
 }

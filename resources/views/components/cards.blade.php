@@ -1,5 +1,6 @@
 
-<div class="profile-card-2" data-toggle="modal" data-target=".myModal-lg"><img src="{{ asset('img/Track.jpg') }}" width="300" class="img img-responsive">
+<div class="profile-card-2" wire:click="openModal({{$merge_track->id}})">
+    <img src="{{ asset('img/Track.jpg') }}" width="300" class="img img-responsive">
     <div class="profile-id">
 {{--        <input type="text" class="profile-id" disabled value="{{$trackId}}" placeholder="{{$trackId}}" wire:model="selectedCard">--}}
     <span>{{$trackId}}</span>

@@ -79,3 +79,16 @@ a, a:hover, a:focus {
 .profile-card-2:hover .profile-username {
     bottom: 60px;
 }
+
+
+
+        @media (min-width: 576px) {
+            .etiqueta-movil {
+                display: none;
+            }
+        }
+        @media (max-width: 577px) {
+            .etiqueta-escritorio {
+                display: none;
+            }
+        }
