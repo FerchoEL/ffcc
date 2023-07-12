@@ -1,6 +1,5 @@
 <div x-data="{ selectedOption: '1' }" class="p-3 pt-5">
 
-    {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     <div class="row">
         <div class="form-group col-12 col-sm-4">
             <strong>Inspector</strong>
@@ -150,9 +149,6 @@
             </div>
         </div>
     </div>
-
-
-
     {{--
         <div class="row">
         <div class="form-group col-12 col-sm-12">

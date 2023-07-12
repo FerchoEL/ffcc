@@ -12,6 +12,7 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/cards.css">
 @stop
 
 @section('js')

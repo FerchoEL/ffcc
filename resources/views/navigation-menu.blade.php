@@ -5,6 +5,11 @@
             'route'=>'/',
             'active'=>request()->routeIs('Home')
         ],
+        [
+            'name'=>'Menu',
+            'route'=>'menu',
+            'active'=>request()->routeIs('Menu')
+        ],
 
 
     ];

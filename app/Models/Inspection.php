@@ -37,7 +37,7 @@ class Inspection extends Model
         return $this->belongsTo('App\Models\Location');
     }
     public function defect_track(){
-        return $this->hasOne('App\Models\DefectTrack');
+        return $this->hasMany('App\Models\DefectTrack');
     }
     /*public function tracksection(){
         return $this->belongsTo('App\Models\TrackSection');
