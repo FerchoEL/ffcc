@@ -99,7 +99,6 @@
             <div class="form-group col-12 col-sm-4">
             </div>
         </div>
-        @dump($selectedComponent)
         <div class="row p-5" x-show="mostrarSeccion === '1'"   x-data="{ conjuntos: [{ defecto: '', priorities: '', comments: '' }] }" >
             <div class="col-12"  >
                 <div class="row" name="primera-fila">

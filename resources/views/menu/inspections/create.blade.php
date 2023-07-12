@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['wire:ignore','route'=> 'menu.inspections.store', 'onsubmit' => 'event.preventDefault()','files'=>true, 'id'=>'myform']) !!}
+            {!! Form::open(['route'=> 'menu.inspections.store', 'onsubmit' => 'event.preventDefault()','files'=>true, 'id'=>'myform']) !!}
             {{-- @include('menu.inspections.partials.form') --}}
             @livewire('inspection-form')
             <div class="d-flex justify-content-around">

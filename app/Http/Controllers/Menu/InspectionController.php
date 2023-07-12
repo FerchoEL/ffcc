@@ -89,13 +89,17 @@ class InspectionController extends Controller
                 ]);
             }
         }
+        $inspectionId= $inspection->getKey();
 
-        if ($request->file('file')) {
-            $url= Storage::put('images', $request->file('file'));
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            $route = 'images/InspectionImage'. $inspectionId.'.'.$image->getClientOriginalExtension();
+            $url= Storage::put($route, file_get_contents($image));
+
             $inspection->image()->create([
-                'url'=>$url
+                'url'=>$route
             ]);
-
+//{!! asset('img/kp_tracks.jpg') !!}
         }
 
         return redirect()->route('menu.inspections.create')->with('info','Se registró  satifactoriamente');
