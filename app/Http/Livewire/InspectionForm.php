@@ -14,7 +14,7 @@ use Carbon\Carbon;
 class InspectionForm extends Component
 {
     public $selectedYard , $selectedTrack , $selectedComponent='1';
-
+    public $selectedDefect;
     public function render()
     {
 
@@ -50,13 +50,13 @@ class InspectionForm extends Component
             $tracksections=TrackSection::tracksection($this->selectedTrack)->pluck('name','id')->toArray();
         }
 
-        if (!$this->selectedComponent) {
-            $components=ComponentCatalog::whereIn('type_component',0)->pluck('name','id')->toArray();
+        /*if (!$this->selectedComponent) {
+            $components=ComponentCatalog::whereIn('type_component',2)->pluck('name','id')->toArray();
         } else{
             $components=ComponentCatalog::component($this->selectedComponent)->pluck('name','id')->toArray();
-        }
-//        $components=ComponentCatalog::component($this->selectedComponent)->pluck('name','id')->toArray();
-
+        }*/
+        $components=ComponentCatalog::component($this->selectedComponent)->pluck('name','id')->toArray();
+        $this->selectedDefect = $components;
         return view('livewire.inspection-form',compact('yards','tracks','tracksections','railroadswitches','components','user','currentDateTime'));
     }
 }

@@ -17,7 +17,7 @@ class Cards extends Component
     public function render()
     {
         $array[] =  $this->trackId;
-        dump($array);
+//        dump($array);
         return view('livewire.cards');
     }
 }

@@ -37,7 +37,8 @@ return new class extends Migration
         });
         Schema::create('defect_tracks', function (Blueprint $table){
             $table->id();
-            $table->string('defect');
+            $table->unsignedBigInteger('component_catalogs_id')->nullable();
+            $table->foreign('component_catalogs_id')->references('id')->on('component_catalogs')->onDelete('SET NULL');
             $table->string('priority');
             $table->string('comment');
             $table->unsignedBigInteger('inspection_id')->nullable();

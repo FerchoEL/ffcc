@@ -83,7 +83,7 @@ class InspectionController extends Controller
             $count = count($request->defecto);
             for ($i = 0; $i < $count; $i++){
                 $inspection->defect_track()->create([
-                    'defect'=>$request->defecto[$i],
+                    'component_catalogs_id'=>$request->defecto[$i],
                     'priority'=>$request->priorities[$i],
                     'comment'=>$request->comments[$i]
                 ]);

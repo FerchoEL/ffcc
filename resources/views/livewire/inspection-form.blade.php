@@ -76,7 +76,7 @@
             @enderror
             {!! Form::select('railroadswitch_id', [0 => 'Selecciona una opción'] + $railroadswitches, '0', ['id' => 'railroadswitch_id','class' => 'form-control']) !!}
         </div>
-        @dump($components,$selectedComponent)
+{{--        @dump($components,$selectedComponent)--}}
     </div>
     <div x-data="{ mostrarSeccion: '0' }"  >
         <div class="row">
@@ -100,6 +100,7 @@
             <div class="form-group col-12 col-sm-4">
             </div>
         </div>
+        @dump($selectedComponent)
         <div class="row p-5" x-show="mostrarSeccion === '1'"   x-data="{ conjuntos: [{ defecto: '', priorities: '', comments: '' }] }" >
             <div class="col-12"  >
                 <div class="row" name="primera-fila">
@@ -113,18 +114,16 @@
                         <label class="etiqueta-escritorio" for="priorities">Comentario</label>
                     </div>
                 </div>
-                <template x-for="(conjunto, index) in conjuntos" :key="index" >
-                    <div class="row">
+                <template  x-for="(conjunto, index) in conjuntos" :key="index" >
+                    <div class="row" >
                         <!-- Agrega aquí los elementos select y el campo de comments -->
-                        <div class="form-group col-12 col-sm-4">
-
+                        <div class="form-group col-12 col-sm-4" >
                             <label class="etiqueta-movil" x-text="'Defecto ' + (index + 1)" for="defecto"></label>
-                            {!! Form::select('defecto[]', [0 => 'Selecciona una opción'] + $components, '0', ['id' => 'defectos_id','class' => 'form-control','x-model'=>'conjunto.defecto']) !!}
+                            {!! Form::select('defecto[]', $components, null, ['id' => 'defectos_id','class' => 'form-control','x-model'=>'conjunto.defecto']) !!}
 
                         </div>
                         <div class="form-group col-12 col-sm-4">
                             <label class="etiqueta-movil" x-text="'Proridad ' + (index + 1)" for="priorities"></label>
-
                             {!! Form::select('priorities[]', [0 => 'Selecciona una opción',1 => 'Baja',2 => 'Media',3 => 'Alta'] , '0', ['id' => 'priority_id','class' => 'form-control','x-model'=>'conjunto.priorities']) !!}
                         </div>
                         <div class="form-group col-12 col-sm-4">
@@ -139,7 +138,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="row">
         <div class="form-group col-12 col-sm-4">

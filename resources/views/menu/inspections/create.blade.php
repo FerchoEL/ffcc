@@ -9,16 +9,16 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=> 'menu.inspections.store', 'onsubmit' => 'event.preventDefault()','files'=>true, 'id'=>'myform']) !!}
+            {!! Form::open(['wire:ignore','route'=> 'menu.inspections.store', 'onsubmit' => 'event.preventDefault()','files'=>true, 'id'=>'myform']) !!}
             {{-- @include('menu.inspections.partials.form') --}}
             @livewire('inspection-form')
             <div class="d-flex justify-content-around">
                 {!! Form::submit('Guardar inspección', ['class' => 'btn btn-primary mt-2','id'=>'b_save']) !!}
-            {!! Form::close() !!}   
+            {!! Form::close() !!}
             {!! Form::open() !!}
                 {!! Form::submit('Enviar reporte', ['class' => 'btn btn-primary mt-2']) !!}
-            {!! Form::close() !!}     
-            </div>           
+            {!! Form::close() !!}
+            </div>
     </div>
 @stop
 
@@ -87,11 +87,11 @@
         var tracksection_id = document.getElementById('tracksection_id');
         var railroadswitch_id = document.getElementById('railroadswitch_id');
         var b_save = document.getElementById('b_save');
-        
-    
+
+
         // Función para verificar los estados de los select
         function verificarViaTramos() {
-            
+
             if (track_id.value !== '0' && tracksection_id.value !== '0') {
                 b_save.disabled = false; // Habilitar el botón si ambos select tienen un valor seleccionado
             } else {
@@ -99,7 +99,7 @@
             }
         }
         function verificarHerrajes() {
-            
+
             if (railroadswitch_id.value !== '0') {
                 b_save.disabled = false; // Habilitar el botón si ambos select tienen un valor seleccionado
             } else {
@@ -115,7 +115,7 @@
         }
         function handleClick(event) {
             event.preventDefault();
-            
+
             if (via.checked) {
                 console.log('El radio 1 está seleccionado');
                 if (track_id.value == 0 || tracksection_id.value == 0){
@@ -125,7 +125,7 @@
                 else{
                     document.getElementById('myform').submit();
                 }
-                
+
             } else if (herraje.checked) {
                 console.log('El radio 2 está seleccionado');
                 if (railroadswitch_id.value == 0 ){
@@ -137,14 +137,14 @@
                 }
             }
         }
-    
+
         // Escuchar los cambios en los select y llamar a la función verificarEstados
         via.addEventListener('change', verificarVia);
-        herraje.addEventListener('change', verificarHerraje); 
-        b_save.addEventListener('click',handleClick);  
+        herraje.addEventListener('change', verificarHerraje);
+        b_save.addEventListener('click',handleClick);
         track_id.addEventListener('change', verificarViaTramos);
         tracksection_id.addEventListener('change', verificarViaTramos);
-        railroadswitch_id.addEventListener('change', verificarHerrajes);    
-        
+        railroadswitch_id.addEventListener('change', verificarHerrajes);
+
     </script>
 @stop
