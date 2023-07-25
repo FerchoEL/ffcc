@@ -13,4 +13,10 @@ class DefectTrack extends Model
     public function inspections(){
         return $this->belongsToMany('App\Models\Inspection');
     }
+
+    public function component_catalog()
+    {
+        return $this->belongsTo(ComponentCatalog::class, 'component_catalogs_id');
+    }
+
 }

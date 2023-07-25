@@ -14,68 +14,49 @@ use App\Models\Inspection;
 
 class MenuCardTrack extends Component
 {
-    public $showModal,$showModal1,$showModal2,$showModal3,$showModal4;
+    public $showModal = false, $showModal1 = false,$showModal2 = false,$showModal3 = false,$showModal4 = false;
     public $selectedCardYardId,$selectedCardTrackId,$selectedCardTrackSectionId,$type,$selectedInspectionId ;
 
-
-    public function mount(){
-         $this->showModal = true;
-    }
     public function openModal1($YardId)
     {
         $this->selectedCardYardId = $YardId;
-        $this->showModal = false;
         $this->showModal1 = true;
     }
     public function openModal2($TrackId)
     {
         $this->selectedCardTrackId = $TrackId;
-        $this->showModal1 = false;
         $this->showModal2 = true;
     }
     public function openModal3($TrackSectionId,$typeee)
     {
         $this->type=$typeee;
         $this->selectedCardTrackSectionId = $TrackSectionId;
-        $this->showModal1 = false;
-        $this->showModal2 = false;
         $this->showModal3 = true;
     }
     public function openModal4($InspectionId)
     {
         $this->selectedInspectionId = $InspectionId;
-        $this->showModal3 = false;
         $this->showModal4= true;
     }
     public function closeModal1()
     {
         $this->reset(['selectedCardYardId']);
         $this->showModal1=false;
-        $this->showModal=true;
     }
     public function closeModal2()
     {
         $this->reset(['selectedCardTrackId']);
         $this->showModal2=false;
-        $this->showModal1=true;
     }
     public function closeModal3()
     {
         $this->reset(['selectedCardTrackSectionId']);
-        if ($this->type=='switch') {
-            $this->showModal3=false;
-            $this->showModal1=true;
-        }else{
-            $this->showModal3=false;
-            $this->showModal2=true;
-        }
-
+        $this->showModal3=false;
     }
     public function closeModal4()
     {
         $this->reset(['selectedInspectionId']);
         $this->showModal4=false;
-        $this->showModal3=true;
     }
 
     public function render()
@@ -131,13 +112,8 @@ class MenuCardTrack extends Component
                 $merge_tracksections[] = $array;
             }
         } */
-        $priorityOptions = [
-            1 => 'Baja',
-            2 => 'Media',
-            3 => 'Alta',
-        ];
         return view('livewire.menu-card-track', compact('yards','tracks','tracksections','user',
-        'railroadswitches','inspections','selectedInspection','defects','priorityOptions'));
+        'railroadswitches','inspections','selectedInspection','defects'));
        // return view('livewire.menu-card-track', compact('merge_tracks','merge_tracksections', 'tracks'));
     }
 

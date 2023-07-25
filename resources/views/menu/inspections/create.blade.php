@@ -12,10 +12,11 @@
             {!! Form::open(['route'=> 'menu.inspections.store', 'onsubmit' => 'event.preventDefault()','files'=>true, 'id'=>'myform']) !!}
             {{-- @include('menu.inspections.partials.form') --}}
             @livewire('inspection-form')
-            <div class="d-flex justify-content-around">
+            <div class="d-flex justify-content-around pb-5">
                 {!! Form::submit('Guardar inspección', ['class' => 'btn btn-primary mt-2','id'=>'b_save']) !!}
             {!! Form::close() !!}
-            {!! Form::open() !!}
+
+            {!! Form::open(['route'=> 'menu.enviar-reporte', 'method' => 'POST']) !!}
                 {!! Form::submit('Enviar reporte', ['class' => 'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}
             </div>

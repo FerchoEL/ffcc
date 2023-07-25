@@ -22,4 +22,7 @@ class RailroadSwitch extends Model
     public function yard(){
         return $this->belongsTo('App\Models\Yard');
     }
+    public function inspections(){
+        return $this->hasMany('App\Models\Inspection','railroadswitch_id');
+    }
 }

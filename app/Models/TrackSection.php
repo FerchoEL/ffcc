@@ -14,7 +14,6 @@ class TrackSection extends Model
     {
         if($selectedTrack){
             return $query->where('track_id', $selectedTrack);
-
         }
 
     }
