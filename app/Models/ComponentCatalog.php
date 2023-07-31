@@ -14,8 +14,13 @@ class ComponentCatalog extends Model
     {
         if($selectedComponent){
             return $query->where('type_component', $selectedComponent);
-
         }
-
     }
+
+
+    public function defect_tracks()
+    {
+        return $this->hasMany(DefectTrack::class, 'component_catalogs_id');
+    }
+
 }

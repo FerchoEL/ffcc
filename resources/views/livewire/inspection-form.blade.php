@@ -1,4 +1,16 @@
 <div x-data="{ selectedOption: '1' }" class="p-3 pt-5">
+    @if (session('info'))
+
+        <div id="Alert" class="alert alert-success" role="alert">
+            <strong>Éxito!</strong> {{ session('info') }}
+        </div>
+    @endif
+    @if (session('error'))
+
+        <div id="Alert" class="alert alert-danger" role="alert">
+            <strong>ERROR!</strong> {{ session('error') }}
+        </div>
+    @endif
 
     <div class="row">
         <div class="form-group col-12 col-sm-4">
@@ -99,7 +111,7 @@
             <div class="form-group col-12 col-sm-4">
             </div>
         </div>
-        <div class="row p-5" x-show="mostrarSeccion === '1'"   x-data="{ conjuntos: [{ defecto: '', priorities: '', comments: '' }] }" >
+        {{-- <div class="row p-5" x-show="mostrarSeccion === '1'"   x-data="{ conjuntos: [{ defecto: '', priorities: '', comments: '' }] }" >
             <div class="col-12"  >
                 <div class="row" name="primera-fila">
                     <div class="form-group col-12 col-sm-4">
@@ -135,10 +147,63 @@
             <div class="col-12 d-flex justify-content-end">
                 <button @click="conjuntos.push({ defecto: '', priorities: '', comments: '' })" class="btn btn-success">Agregar defecto <i class='fas fa-plus-circle'></i></button>
             </div>
+        </div> --}}
+
+        <div class="row p-5" x-show="mostrarSeccion === '1'" >
+            <div class="col-12">
+                <div class="row" name="primera-fila">
+                    <div class="form-group col-12 col-sm-4">
+                        <label class="etiqueta-escritorio" for="priorities">Componente</label>
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                        <label class="etiqueta-escritorio" for="priorities">Prioridad</label>
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                        <label class="etiqueta-escritorio" for="priorities">Comentario</label>
+                    </div>
+                </div>
+                @foreach ($conjuntos as $index => $conjunto)
+                    <div class="row">
+                        <!-- Agrega aquí los elementos select y el campo de comentarios -->
+                        <div class="form-group col-12 col-sm-4">
+                            <label class="etiqueta-movil" x-text="'Componente ' + {{ $index +1}}" for="defecto"></label>
+
+                            <select name="defecto[]" id="defectos_id_{{ $index }}" class="form-control" wire:model="conjuntos.{{ $index }}.defecto">
+                                <option value="">Selecciona una opción</option>
+                                @foreach ($components as $id => $name)
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-12 col-sm-4">
+                            <label class="etiqueta-movil" x-text="'Proridad ' + {{ $index +1}}" for="priorities"></label>
+                            <select name="priorities[]" id="priority_id_{{ $index }}" class="form-control" wire:model="conjuntos.{{ $index }}.priorities">
+                                <option value="0">Selecciona una opción</option>
+                                <option value="1">Baja</option>
+                                <option value="2">Media</option>
+                                <option value="3">Alta</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12 col-sm-4">
+                            <label class="etiqueta-movil" x-text="'Comentario ' + {{ $index +1}}" for="comments"></label>
+                            <input type="text" name="comments[]" placeholder="Agregar comentario" class="form-control" wire:model="conjuntos.{{ $index }}.comments">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+                @if (count($conjuntos) > 1)
+                <button wire:click="eliminarConjunto({{ $index }})" class="btn btn-danger">Eliminar defecto</button>
+                @endif
+                <button wire:click="agregarConjunto" class="btn btn-success">Agregar defecto <i class='fas fa-plus-circle'></i></button>
+            </div>
+
         </div>
     </div>
 
-    <div class="row">
+
+
+    <div class="row ">
         <div class="form-group col-12 col-sm-4">
             {!! Form::label('file', 'Evidencia gráfica (opcional)'); !!}
             {!! Form::file('file', ['class'=>'form-control-file','accept' => 'image/*']); !!}
@@ -183,4 +248,15 @@
     </div>
     --}}
 
+
+
+
+@if (session('info') or session('error'))
+    <script>
+        // Esperar 5 segundos (5000 milisegundos) y ocultar la alerta
+        setTimeout(function() {
+            $("#Alert").fadeOut(1000); // Opción de efecto de desvanecimiento, en este caso 1 segundo (1000 milisegundos)
+        }, 3000);
+    </script>
+@endif
 </div>

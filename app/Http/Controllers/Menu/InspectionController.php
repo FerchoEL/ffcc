@@ -14,6 +14,8 @@ use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReporteInspeccion;
 
 class InspectionController extends Controller
 {
@@ -53,7 +55,7 @@ class InspectionController extends Controller
     public function store(Request $request)
     {
 
-//       return $request;
+     //return $request;
 
         if($request->type_inspection == 1){
             $inspection=Inspection::create([
@@ -149,5 +151,29 @@ class InspectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function enviarReporte()
+    {
+        $user=User::find(auth()->id());
+        $inspections = Inspection::where('user_id', auth()->id())->where('sent', 0)->get();
+
+        if (empty($inspections)) {
+            $MailList=['sistemas.kplogistics@gmail.com','Luisloppez01@gmail.com','joalmaes0814@gmail.com'];
+            $correoEnviado = Mail::to('fernando.espinosa@kplogistics.com.mx')->send(new ReporteInspeccion($inspections));
+
+            if ($correoEnviado) {
+                // El correo se envió exitosamente
+                return redirect()->back()->with('info', 'El reporte ha sido enviado por correo.');
+            } else {
+                // Ocurrió un error al enviar el correo
+                return redirect()->back()->with('error', 'Error al enviar el correo. Por favor, intenta de nuevo.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'No existen inspecciones');
+        }
+
+
+
     }
 }
