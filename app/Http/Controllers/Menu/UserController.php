@@ -17,6 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
+//        $user=User::find(17);
+//        dd($user->yards);
         return view('menu.users.index');
     }
 

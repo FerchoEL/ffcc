@@ -16,6 +16,12 @@ class Track extends Model
             return $query->where('yard_id', $selectedYard);
         }
     }
+    public function scopeTracks($query,$selectedYards)
+    {
+        if($selectedYards){
+            return $query->where('yard_id', $selectedYards);
+        }
+    }
 
     //Relacion inversa uno a muchos
     public function yard(){

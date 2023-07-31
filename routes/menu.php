@@ -16,6 +16,7 @@ use App\Http\Controllers\Menu\TrackSectionController;
 use App\Http\Controllers\Menu\InspectionController;
 use App\Http\Controllers\Menu\ComponentCatalogController;
 use App\Http\Controllers\Menu\CardTrackController;
+use App\Http\Controllers\Menu\TrackReportController;
 
 Route::get('', [HomeController::class, 'index'])->name('home');
 Route::resource('roles',RoleController::class)->names('roles');
@@ -32,3 +33,4 @@ Route::resource('tracksections',TrackSectionController::class)->names('tracksect
 Route::resource('inspections',InspectionController::class)->names('inspections');
 Route::resource('componentcatalogs',ComponentCatalogController::class)->names('componentcatalogs');
 Route::resource('cardtracks',CardTrackController::class)->names('cardtracks');
+Route::resource('trackreports',TrackReportController::class)->names('trackreports');

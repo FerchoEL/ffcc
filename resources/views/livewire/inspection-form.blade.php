@@ -33,7 +33,7 @@
                 <strong>{{$message}}</strong>
             </small>
             @enderror
-            {{ Form::text('date', $currentDateTime, ['class' => 'form-control','readonly' => true]) }}
+            {{ Form::text('date', $currentDateTime, ['class' => 'form-control','readonly' => false]) }}
         </div>
     </div>
     <div class="row">
@@ -75,8 +75,8 @@
             @enderror
             {!! Form::select('railroadswitch_id', [0 => 'Selecciona una opción'] + $railroadswitches, '0', ['id' => 'railroadswitch_id','class' => 'form-control']) !!}
         </div>
-{{--        @dump($components,$selectedComponent)--}}
     </div>
+
     <div x-data="{ mostrarSeccion: '0' }"  >
         <div class="row">
             <div class="form-group col-12 col-sm-4">
@@ -114,6 +114,7 @@
                 </div>
                 <template  x-for="(conjunto, index) in conjuntos" :key="index" >
                     <div class="row" >
+
                         <!-- Agrega aquí los elementos select y el campo de comments -->
                         <div class="form-group col-12 col-sm-4" >
                             <label class="etiqueta-movil" x-text="'Defecto ' + (index + 1)" for="defecto"></label>
