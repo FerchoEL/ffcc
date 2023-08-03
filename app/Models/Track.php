@@ -29,4 +29,12 @@ class Track extends Model
     public function component_track(){
         return $this->hasOne('App\Models\ComponentTrack');
     }
+
+
+    public function tracksections(){
+        return $this->hasMany('App\Models\TrackSection');
+    }
+    public function inspections(){
+        return $this->hasMany('App\Models\Inspection');
+    }
 }

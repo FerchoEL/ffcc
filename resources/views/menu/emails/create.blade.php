@@ -11,7 +11,8 @@
         <div class="card-body">
             {!! Form::open(['route'=> 'menu.emails.store']) !!}
                 @include('menu.emails.partials.form')
-                
+
+
                 {!! Form::submit('Registrar correos', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}

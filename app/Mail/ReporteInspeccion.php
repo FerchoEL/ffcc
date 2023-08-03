@@ -12,16 +12,17 @@ class ReporteInspeccion extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $inspections;
+    public $inspections,$today;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($inspections)
+    public function __construct($inspections,$today)
     {
         $this->inspections = $inspections;
+        $this->today=$today;
     }
 
     /**
