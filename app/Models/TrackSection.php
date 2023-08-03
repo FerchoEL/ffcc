@@ -17,7 +17,14 @@ class TrackSection extends Model
         }
 
     }
+    public function scopeTrackSections($query,$selectedTracks)
+    {
+        if($selectedTracks){
+            return $query->where('track_id', $selectedTracks);
 
+        }
+
+    }
     public function track(){
         return $this->belongsTo('App\Models\Track');
     }

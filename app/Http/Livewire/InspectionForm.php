@@ -36,10 +36,10 @@ class InspectionForm extends Component
     public function render()
     {
         $currentDateTime = Carbon::now();
+        $currentDateTime = $currentDateTime->setTimezone('America/Mexico_City');
         $user=User::find(auth()->id());
         $yards=$user->yards;
         $yards_id = $yards->pluck('id');
-
         if (!isset($yards)) {
             $yards=Yard::pluck('name','id')->toArray();
             $yards_id=$yards;
@@ -58,8 +58,8 @@ class InspectionForm extends Component
             $tracksections=TrackSection::whereIn('track_id',$tracks_id)->pluck('name','id')->toArray();
         } else {
             $tracksections=TrackSection::tracksection($this->selectedTrack)->pluck('name','id')->toArray();
-        }
 
+        }
         $components=ComponentCatalog::component($this->selectedComponent)->pluck('name','id')->toArray();
         $this->selectedDefect = $components;
         return view('livewire.inspection-form',compact('yards','tracks','tracksections','railroadswitches','components','user','currentDateTime'))->with('info','Se guardo la inspeccion correctamente');;

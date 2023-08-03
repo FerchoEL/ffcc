@@ -404,6 +404,12 @@ return [
         ['header' => '',],
         ['header' => 'VISTAS USUARIOS'],
         [
+            'text' => 'Reportes',
+            'route'  => 'menu.trackreports.create',
+            'icon' => 'fas fa-fw fa-user',
+            'active'        =>['menu/trackreports*']
+        ],
+        [
             'text' => 'Tarjeta Vías',
             'route'  => 'menu.cardtracks.index',
             'icon' => 'fas fa-fw fa-user',
