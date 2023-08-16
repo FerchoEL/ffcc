@@ -25,9 +25,30 @@
                     <h5 class="card-title">Vias</h5>
                 </div>
                 <div class="row">
+                    @php
+                        $condition = 'bg-success'; // Establecemos el valor predeterminado a 'bg-success'
+                    @endphp
                     @foreach($tracks as $track)
+                        @foreach ($track->tracksections as $tracksection)
+                        @if ($tracksection->inspectionsForTrackSection->count() > 0)
+                            @php
+                                // Obtener la última inspección para esta sección de la vía
+                                $lastInspection = $tracksection->inspectionsForTrackSection->sortByDesc('id')->first();
+                                // Actualizar la variable de control $condition en función de la condición de la última inspección
+                                if ($lastInspection->condition == 1) {
+                                    $condition = 'bg-warning'; // Puedes cambiar esto a 'bg-success' si así lo deseas
+                                } elseif ($lastInspection->condition == 0 && $condition != 'bg-warning') {
+                                    $condition = 'bg-success'; // Si la condición actual no es 'bg-success', establecemos 'bg-warning'
+                                }
+                            @endphp
+                        @else
+                            @php
+                                $condition = 'bg-danger'; // Si no hay inspecciones, establecemos 'bg-danger'
+                            @endphp
+                        @endif
+                    @endforeach
                         <div class="col-md-4 col-sm-6">
-                            <div class="btn btn-success btn-block mt-2" wire:click="openModal2({{$track->id}})">
+                            <div class="btn {{$condition}} btn-block mt-2" wire:click="openModal2({{$track->id}})">
                                 <div class="profile-id">
                                     <span>{{$track->id}}</span>
                                 </div>
@@ -35,6 +56,11 @@
                                 <div class="profile-username"><span>{{$track->yard->name}}</span></div>
                             </div>
                         </div>
+
+
+
+
+
                     @endforeach
                 </div>
                 <div class="row">
@@ -82,13 +108,13 @@
                 <div class="row">
                     @foreach($tracksections as $tracksection)
                         <div class="col-lg-4 col-sm-6">
-                            @if($tracksection->inspections->count() > 0)
-                                @if ($tracksection->inspections->sortByDesc('id')->first()->condition == 0)
+                            @if($tracksection->inspectionsForTrackSection->count() > 0)
+                                @if ($tracksection->inspectionsForTrackSection->sortByDesc('id')->first()->condition == 0)
                                     @php
                                         $condition='bg-success'
                                     @endphp
                                 @endif
-                                @if ($tracksection->inspections->sortByDesc('id')->first()->condition == 1)
+                                @if ($tracksection->inspectionsForTrackSection->sortByDesc('id')->first()->condition == 1)
                                     @php
                                         $condition='bg-warning'
                                     @endphp

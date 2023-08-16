@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReporteInspeccion;
+use Carbon\Carbon;
 
 class InspectionController extends Controller
 {
@@ -156,11 +157,32 @@ class InspectionController extends Controller
     public function enviarReporte()
     {
         $user=User::find(auth()->id());
-        $inspections = Inspection::where('user_id', auth()->id())->where('sent', 0)->get();
+        $today=Carbon::today()->toDateString();
 
-        if (empty($inspections)) {
-            $MailList=['sistemas.kplogistics@gmail.com','Luisloppez01@gmail.com','joalmaes0814@gmail.com'];
-            $correoEnviado = Mail::to('fernando.espinosa@kplogistics.com.mx')->send(new ReporteInspeccion($inspections));
+        $inspections = Inspection::where('user_id', auth()->id())
+                       ->where('sent', 0)
+                       ->where('date','LIKE', '%' .$today. '%')
+                       ->get();
+
+        /* $yards = $inspections->map(function ($inspection) {
+            return $inspection->yard;
+        });
+        $uniqueYards = $inspections->map(function ($inspection) {
+            return $inspection->yard;
+        })->unique('id');
+        $emailLists = $uniqueYards->map(function ($yard) {
+            return [
+                'yard_id' => $yard->id,
+                'email_list' => $yard->email->list ?? null,
+            ];
+        });
+        $emailLists;
+        return $emailLists;
+        */
+
+        if ($inspections->count() > 0) {
+            $kpMailList=['sistemas.kplogistics@gmail.com','Luisloppez01@gmail.com','joalmaes0814@gmail.com',$user->email];
+            $correoEnviado = Mail::to(['sistemas.kplogistics@gmail.com','fernando.espinosa@kplogistics.com.mx'])->send(new ReporteInspeccion($inspections,$today));
 
             if ($correoEnviado) {
                 // El correo se envió exitosamente

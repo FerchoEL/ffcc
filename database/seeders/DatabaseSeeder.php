@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\Initial;
 use Spatie\Permission\Models\Role;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,8 +23,9 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(RoleSeeder::class);
-        
-        $this->call(UserSeeder::class);
-        $this->call(CarInspectionSeeder::class);
+        $this->call(InitialSeeder::class);
+
+        /* $this->call(UserSeeder::class);
+        $this->call(CarInspectionSeeder::class); */
     }
 }

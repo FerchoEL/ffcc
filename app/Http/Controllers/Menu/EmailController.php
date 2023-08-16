@@ -27,17 +27,15 @@ class EmailController extends Controller
      */
     public function create()
     {
-        
         $yards_saved=Email::join("yards","emails.yard_id","=","yards.id")
                            ->select('yards.id')->pluck('id')->toArray();
-
         $yards=Yard::all()
                     ->whereNotIn('id', $yards_saved)
                     ->pluck('name','id')->toArray();
-        
+
 
         return view('menu.emails.create',compact('yards'));
-        
+
     }
 
     /**
@@ -56,7 +54,7 @@ class EmailController extends Controller
             'list' => $request->list,
             'yard_id'=> $request->yard_id
         ]);
-        return redirect()->route('menu.emails.index')->with('info','Se regsitraron los correos satifactoriamente');
+        return redirect()->route('menu.emails.index')->with('info','Se registraron los correos satifactoriamente');
     }
 
     /**
@@ -77,23 +75,23 @@ class EmailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Email $email)
-    {   
-        
+    {
+
         $email->yard->name;
         //$yards=Yard::pluck('name','id')->toArray();
         $yards_saved=Email::join("yards","emails.yard_id","=","yards.id")
                            ->select('yards.id')->pluck('id')->toArray();
-        
+
         if (($clave = array_search($email->yard_id, $yards_saved)) !== false) {
             unset($yards_saved[$clave]);
         }
-        
+
 
         $yards=Yard::all()
                     ->whereNotIn('id', $yards_saved)
                     ->pluck('name','id')->toArray();
-        
-       
+
+
         return view('menu.emails.edit',compact('email','yards'));
     }
 
@@ -114,8 +112,8 @@ class EmailController extends Controller
             'list' => $request->list,
             'yard_id'=> $request->yard_id
         ]);
-        
-        return redirect()->route('menu.emails.edit',$email)->with('info','se actualizó satifactoriamente'); 
+
+        return redirect()->route('menu.emails.edit',$email)->with('info','se actualizó satifactoriamente');
     }
 
     /**
