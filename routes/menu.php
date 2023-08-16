@@ -17,6 +17,7 @@ use App\Http\Controllers\Menu\InspectionController;
 use App\Http\Controllers\Menu\ComponentCatalogController;
 use App\Http\Controllers\Menu\CardTrackController;
 use App\Http\Controllers\Menu\TrackReportController;
+use App\Http\Controllers\Menu\AssignYardController;
 
 Route::get('', [HomeController::class, 'index'])->name('home');
 Route::resource('roles',RoleController::class)->names('roles');
@@ -34,5 +35,6 @@ Route::resource('inspections',InspectionController::class)->names('inspections')
 Route::resource('componentcatalogs',ComponentCatalogController::class)->names('componentcatalogs');
 Route::resource('cardtracks',CardTrackController::class)->names('cardtracks');
 Route::resource('trackreports',TrackReportController::class)->names('trackreports');
+Route::resource('assignyards',AssignYardController::class)->names('assignyards');
 Route::post('enviar-reporte',[InspectionController::class,'enviarReporte'])->name('enviar-reporte');
 

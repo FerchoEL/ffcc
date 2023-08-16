@@ -39,6 +39,7 @@
     </small>
     @enderror
     {!! Form::select('company_id', $companies, null, ['class' => 'form-control mt-2']) !!}
+{{--    @dump($companies)--}}
 </div>
 <div class="form-group">
     @foreach ($roles as $role)

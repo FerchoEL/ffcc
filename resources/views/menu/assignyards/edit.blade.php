@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'DashboardTITLE')
+@section('title', 'FFCC')
 
 @section('content_header')
-    <h1>Editar Usuario</h1>
+    <h1>Asignar patio</h1>
 @stop
 
 @section('content')
@@ -14,10 +14,12 @@
     @endif
     <div class="card">
         <div class="card-body">
-            {!! Form::model($user,['route'=> ['menu.users.update',$user], 'method' => 'put']) !!}
-            @include('menu.users.partials.form')
-{{--            @livewire('form-users')--}}
-            {!! Form::submit('Actualizar usuario', ['class' => 'btn btn-primary mt-2']) !!}
+
+            {!! Form::model($user,['route'=> ['menu.assignyards.update',$user], 'method' => 'put']) !!}
+            @include('menu.assignyards.partials.form')
+
+            {!! Form::submit('Asignar patios', ['class' => 'btn btn-primary mt-2']) !!}
+
             {!! Form::close() !!}
         </div>
     </div>
@@ -25,8 +27,4 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

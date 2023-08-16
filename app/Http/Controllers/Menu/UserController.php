@@ -56,7 +56,7 @@ class UserController extends Controller
             'password'=>bcrypt($request->password),
             'company_id'=>$request->company_id,
         ]);
-        $User->yards()->attach($request->yard_id);
+        /*$User->yards()->attach($request->yard_id);*/
         // $User->company()->attach($request->company_id);
 
 
@@ -111,7 +111,7 @@ class UserController extends Controller
             'company_id'=>$request->company_id
 
         ]);
-        return redirect()->route('menu.users.edit', $user)->with('info','Se actualizó al usuario correctamente');
+        return redirect()->route('menu.users.edit', $user)->with('info','Se actualizó la asignación correctamente');
     }
 
     /**
