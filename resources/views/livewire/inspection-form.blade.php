@@ -89,6 +89,8 @@
         </div>
     </div>
 
+
+
     <div x-data="{ mostrarSeccion: '0' }"  >
         <div class="row">
             <div class="form-group col-12 col-sm-4">

@@ -9,8 +9,7 @@ use App\Models\Track;
 use App\Models\User;
 use App\Models\RailroadSwitch;
 use App\Models\Inspection;
-
-
+use App\Models\Yard;
 
 class MenuCardTrack extends Component
 {
@@ -81,7 +80,16 @@ class MenuCardTrack extends Component
     public function render()
     {
         $user = User::find(auth()->id());
-        $yards = $user->yards;
+
+
+         if ($user->getRoleNames()->first() == "Admin" or $user->getRoleNames()->first() == "Coorporativo KP") {
+            $yards=Yard::all();
+            $yards_id=$yards;
+        } else {
+            $yards = $user->yards;
+/*             $yards=Yard::whereIn('id',$yards_id)->pluck('name','id')->toArray();
+ */        }
+
         if (!$this->selectedCardYardId) {
             $yardIds = $yards->pluck('id');
             $tracks = Track::whereIn('yard_id', $yardIds)->get();

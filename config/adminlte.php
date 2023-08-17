@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -321,7 +322,8 @@ return [
             'text'        => 'Roles',
             'route'         => 'menu.roles.index',
             'icon'        => 'fas fa-fw fa-users-cog',
-            'active'        =>['menu/roles*']
+            'active'        =>['menu/roles*'],
+            'can'        =>['Admin','Corporativo KP'],
         ],
         ['header' => '',],
         [
