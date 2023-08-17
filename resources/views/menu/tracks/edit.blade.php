@@ -14,9 +14,10 @@
         @endif
     <div class="card">
         <div class="card-body">
-            {!! Form::model($track,['route'=> ['menu.tracks.update',$track], 'method' => 'put']) !!}
-                @include('menu.tracks.partials.form')
-                
+            @dump($track->id)
+{{--            {!! Form::model($track,['route'=> ['menu.tracks.update',$track], 'method' => 'put']) !!}--}}
+                {{--@include('menu.tracks.partials.form')--}}
+
                 {!! Form::submit('Actualizar vía', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}

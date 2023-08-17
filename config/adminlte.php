@@ -324,6 +324,11 @@ return [
             'icon'        => 'fas fa-fw fa-users-cog',
             'active'        =>['menu/roles*'],
             'can'        =>['Admin','Corporativo KP'],
+        ],[
+            'text'        => 'Asignar patios',
+            'route'         => 'menu.assignyards.index',
+            'icon'        => 'fas fa-fw fa-users-cog',
+            'active'        =>['menu/assignyards*']
         ],
         ['header' => '',],
         [

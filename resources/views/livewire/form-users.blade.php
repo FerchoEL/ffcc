@@ -40,10 +40,11 @@
         </small>
         @enderror
         {!! Form::select('company_id', [0 => 'Selecciona una opción'] + $companies, null, ['class' => 'form-control','wire:model' => 'selectedCompany']) !!}
+
         {{--        {!! Form::select('company_id', $companies, null, ['class' => 'form-control mt-2']) !!}--}}
     </div>
-    <div class="form-group">
-        {{-- <strong>Patios:</strong> --}}
+{{--    <div class="form-group">
+        --}}{{-- <strong>Patios:</strong> --}}{{--
         @error('yards')
         <small class="text-danger">
             <strong>{{$message}}</strong>
@@ -57,8 +58,8 @@
                 </label>
             </div>
         @endforeach
-        {{--        {!! Form::select('yards', [0 => 'Selecciona una opción'] +$yards, null, ['class' => 'form-control']) !!}--}}
-    </div>
+        --}}{{--        {!! Form::select('yards', [0 => 'Selecciona una opción'] +$yards, null, ['class' => 'form-control']) !!}--}}{{--
+    </div>--}}
     <div class="form-group">
         <h4>Lista de Roles</h4>
         @foreach ($roles as $role)

@@ -116,6 +116,7 @@ class TrackController extends Controller
      */
     public function edit(Track $track)
     {
+        dump($track->id);
         $route = 'edit';
         $yards = Yard::pluck('name', 'id')->toArray();
         $components = ComponentTrack::select('id', 'type_track', 'lenght_tracksleeper_one', 'lenght_tracksleeper_two',
