@@ -55,7 +55,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password'=>bcrypt($request->password),
             'company_id'=>$request->company_id,
-        ]);
+        ])->assignRole($request->roles);
         /*$User->yards()->attach($request->yard_id);*/
         // $User->company()->attach($request->company_id);
 
