@@ -37,15 +37,18 @@ class InspectionForm extends Component
     {
         $currentDateTime = Carbon::now();
         $currentDateTime = $currentDateTime->setTimezone('America/Mexico_City');
+
         $user=User::find(auth()->id());
         $yards=$user->yards;
         $yards_id = $yards->pluck('id');
-        if (!isset($yards)) {
+
+        if ($user->getRoleNames()->first() == "Admin" or $user->getRoleNames()->first() == "Coorporativo KP") {
             $yards=Yard::pluck('name','id')->toArray();
             $yards_id=$yards;
         } else {
             $yards=Yard::whereIn('id',$yards_id)->pluck('name','id')->toArray();
         }
+
         if (!$this->selectedYard) {
             $tracks=Track::whereIn('yard_id',$yards_id)->pluck('name','id')->toArray();
             $railroadswitches=RailroadSwitch::whereIn('yard_id',$yards_id)->pluck('name','id')->toArray();
