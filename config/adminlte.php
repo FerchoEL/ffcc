@@ -313,43 +313,28 @@ return [
         ],
         ['header' => '',],
         [
-            'text'        => 'Usuarios',
-            'route'         => 'menu.users.index',
-            'icon'        => 'fas fa-fw fa-users',
-            'active'        =>['menu/users*']
+            'text'        => 'Ubicaciones',
+            'route'         => 'menu.locations.index',
+            'icon'        => 'fas fa-fw fa-globe-americas',
+            'active'        =>['menu/locations*'],
+            'can'   => 'Ubicaciones'
         ],
-        [
-            'text'        => 'Roles',
-            'route'         => 'menu.roles.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
-            'active'        =>['menu/roles*'],
-            'can'        =>['Admin','Corporativo KP'],
-        ],[
-            'text'        => 'Asignar patios',
-            'route'         => 'menu.assignyards.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
-            'active'        =>['menu/assignyards*']
-        ],
-        ['header' => '',],
         [
             'text'        => 'Empresas',
             'route'         => 'menu.companies.index',
             'icon'        => 'fas fa-fw fa-city',
-            'active'        =>['menu/companies*']
+            'active'        =>['menu/companies*'],
+            'can'   => 'Empresas'
         ],
-        [
-            'text'        => 'Ubicaciones',
-            'route'         => 'menu.locations.index',
-            'icon'        => 'fas fa-fw fa-globe-americas',
-            'active'        =>['menu/locations*']
-        ],
+
         ['header' => '',],
         // ['header' => 'LISTAS'],
         [
             'text'        => 'Patios',
             'route'         => 'menu.yards.index',
             'icon'        => 'fas fa-fw fa-train',
-            'active'        =>['menu/yards*']
+            'active'        =>['menu/yards*'],
+            'can'   => 'Patios'
         ],
         /*
         [
@@ -362,31 +347,69 @@ return [
             'text'        => 'Vías',
             'route'         => 'menu.tracks.index',
             'icon'        => 'fas fa-fw fa-road',
-//            'active'        =>['menu/tracks*']
+            'active'        =>['menu/tracks*'],
+            'can'   => 'Vias'
         ],
         [
             'text'        => 'Tramos',
             'route'         => 'menu.tracksections.index',
             'icon'        => 'fas fa-fw fa-route',
-            'active'        =>['menu/tracksections*']
+            'active'        =>['menu/tracksections*'],
+            'can'   => 'Tramos'
         ],
         [
             'text'        => 'Herrajes',
             'route'         => 'menu.railroadswitches.index',
             'icon'        => 'fas fa-fw fa-random',
-            'active'        =>['menu/railroadswitches*']
+            'active'        =>['menu/railroadswitches*'],
+            'can'   => 'Herrajes'
         ],
         [
             'text'        => 'Catálogo de componentes',
             'route'         => 'menu.componentcatalogs.index',
             'icon'        => 'fas fa-fw fa-random',
-            'active'        =>['menu/componentcatalogs*']
+            'active'        =>['menu/componentcatalogs*'],
+            'can'   => 'Componentes'
+        ],
+
+
+        ['header' => '',],
+        [
+            'text'        => 'Roles',
+            'route'         => 'menu.roles.index',
+            'icon'        => 'fas fa-fw fa-users-cog',
+            'active'        =>['menu/roles*'],
+            'can'   => 'Roles'
+
+        ],
+        [
+            'text'        => 'Usuarios',
+            'route'         => 'menu.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'active'        =>['menu/users*'],
+            'can'   => 'Usuarios'
+        ],
+        [
+            'text'        => 'Asignar patios',
+            'route'         => 'menu.assignyards.index',
+            'icon'        => 'fas fa-fw fa-users-cog',
+            'active'        =>['menu/assignyards*'],
+            'can'   => 'Asignar patios'
+        ],
+        [
+            'text'        => 'Listas de correo',
+            'route'         => 'menu.emails.index',
+            'icon'        => 'fas fa-fw fa-envelope-open',
+            'active'        =>['menu/emails*'],
+            'can'   => 'Correos'
         ],
         ['header' => '',],
         [
             'text'        => 'Inspecciones',
             'route'         => 'menu.inspections.index',
             'icon'        => 'fas fa-fw fa-book',
+            'active'        =>['menu/inspecciones*'],
+            'can'   => 'Inspecciones'
 
         ],
         // ['header' => 'INSPECCIÓN',],
@@ -394,18 +417,7 @@ return [
             'text'        => 'Nueva inspección',
             'route'         => 'menu.inspections.create',
             'icon'        => 'fas fa-fw fa-user-secret',
-        ],
-
-        /*[
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],*/
-        [
-            'text'        => 'Listas de correo',
-            'route'         => 'menu.emails.index',
-            'icon'        => 'fas fa-fw fa-envelope-open',
-            'active'        =>['menu/emails*']
+            'can'   => 'Realizar inspeccion'
         ],
 
         ['header' => '',],
@@ -414,13 +426,15 @@ return [
             'text' => 'Reportes',
             'route'  => 'menu.trackreports.create',
             'icon' => 'fas fa-fw fa-user',
-            'active'        =>['menu/trackreports*']
+            'active'        =>['menu/trackreports*'],
+            'can'   => 'Reportes'
         ],
         [
             'text' => 'Tarjeta Vías',
             'route'  => 'menu.cardtracks.index',
             'icon' => 'fas fa-fw fa-user',
-            'active'        =>['menu/cardtracks*']
+            'active'        =>['menu/cardtracks*'],
+            'can'   => 'Tarjetas Vias'
         ],
         ['header' => 'CONFIGURACIÓN DE CUENTA'],
         [
