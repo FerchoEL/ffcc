@@ -83,14 +83,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <label style="margin-left: 12px" for="">Rieles</label>
+                                            <label style="margin-left: 12px" for="">Herrajes</label>
                                             <div style="gap: 30px" class="d-flex justify-content-around">
                                                 <div style="width: 45%" class="form-group">
-                                                    <label for="">Riel 1</label>
+                                                    <label for="">Herraje Interior</label>
                                                     <input type="text" name="name" value="{{$components[$track->id]['railroadswitch_interior']}}" disabled class="form-control">
                                                 </div>
                                                 <div style="width: 45%" class="form-group">
-                                                    <label for="">Riel 2</label>
+                                                    <label for="">Herraje Exterior</label>
                                                     <input type="text" name="name" value="{{$components[$track->id]['railroadswitch_exterior']}}" disabled class="form-control">
                                                 </div>
                                             </div>

@@ -47,12 +47,12 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'RFC'=> 'required',
+/*            'RFC'=> 'required',*/
 
         ]);
         $company=Company::create([
             'name' => $request->name,
-            'RFC' => $request->RFC,
+/*            'RFC' => $request->RFC,*/
             'location_id'=>$request->location_id,
         ]);
 
@@ -94,12 +94,12 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'RFC'=> 'required',
+/*            'RFC'=> 'required',*/
             'location_id' => 'required'
         ]);
         $company->update([
             'name' => $request->name,
-            'RFC' => $request->RFC,
+/*            'RFC' => $request->RFC,*/
             'location_id'=>$request->location_id
         ]);
 

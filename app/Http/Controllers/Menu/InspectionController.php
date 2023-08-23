@@ -96,7 +96,7 @@ class InspectionController extends Controller
 
         if ($request->hasFile('file')) {
             $image = $request->file('file');
-            $route = 'images/InspectionImage'. $inspectionId.'.'.$image->getClientOriginalExtension();
+            $route = 'public/InspectionImage'. $inspectionId.'.'.$image->getClientOriginalExtension();
             $url= Storage::put($route, file_get_contents($image));
 
             $inspection->image()->create([

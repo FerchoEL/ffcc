@@ -8,8 +8,6 @@
 
     </head>
     <body>
-
-
         <table style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; font-size: 14px;">
             <tr>
                 <td colspan="2" style="text-align: right;  padding: 10px;">

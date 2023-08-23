@@ -23,7 +23,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>RFC</th>
+                        {{--<th>RFC</th>--}}
                         <th>Ubicación</th>
                         <th colspan="2"></th>
                     </tr>
@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{$company->id}}</td>
                             <td>{{$company->name}}</td>
-                            <td>{{$company->RFC}}</td>
+                            {{--<td>{{$company->RFC}}</td>--}}
                             <td>{{$company->location->name}}</td>
                             <td width='10px'><a class="btn btn-secondary" href={{route('menu.companies.edit',$company)}}>Editar</a></td>
                             <td width='10px'>
