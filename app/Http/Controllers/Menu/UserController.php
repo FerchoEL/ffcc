@@ -111,7 +111,7 @@ class UserController extends Controller
             'company_id'=>$request->company_id
 
         ]);
-        return redirect()->route('menu.users.edit', $user)->with('info','Se actualizó la asignación correctamente');
+        return redirect()->route('menu.users.index', $user)->with('info','Se actualizó la asignación correctamente');
     }
 
     /**

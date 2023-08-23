@@ -99,7 +99,7 @@ class YardController extends Controller
             'company_id'=>$request->company_id
         ]);
 
-      return redirect()->route('menu.yards.edit',$yard)->with('info','Se actualizó el patio correctamente');
+      return redirect()->route('menu.yards.index',$yard)->with('info','Se actualizó el patio correctamente');
     }
 
     /**

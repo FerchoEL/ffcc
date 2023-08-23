@@ -33,8 +33,8 @@ class TrackController extends Controller
                 'lenght_rails_one' => $item->lenght_rails_one,
                 'weight_rails_two' => $item->weight_rails_two,
                 'lenght_rails_two' => $item->lenght_rails_two,
-                'railroadswitch_interior' => $item->railroadswitch_interior,
-                'railroadswitch_exterior' => $item->railroadswitch_exterior,
+                /*'railroadswitch_interior' => $item->railroadswitch_interior,
+                'railroadswitch_exterior' => $item->railroadswitch_exterior,*/
             ];return $carry;}, []);
 
 //        dd($components[1]);
@@ -73,8 +73,8 @@ class TrackController extends Controller
             'lenght_rails_one' => 'required',
             /*'weight_rails_two' => 'required',
             'lenght_rails_two' => 'required',*/
-            'railroadswitch_interior' => 'required',
-            'railroadswitch_exterior' => 'required',
+            /*'railroadswitch_interior' => 'required',
+            'railroadswitch_exterior' => 'required',*/
         ]);
         $track = Track::create([
             'name' => $request->name,
@@ -90,8 +90,8 @@ class TrackController extends Controller
             'lenght_rails_one' => $request->lenght_rails_one,
             'weight_rails_two' => $request->weight_rails_two,
             'lenght_rails_two' => $request->lenght_rails_two,
-            'railroadswitch_interior' => $request->railroadswitch_interior,
-            'railroadswitch_exterior' => $request->railroadswitch_exterior,
+            /*'railroadswitch_interior' => $request->railroadswitch_interior,
+            'railroadswitch_exterior' => $request->railroadswitch_exterior,*/
         ]);
 
         return redirect()->route('menu.tracks.index')->with('info', 'Se registró la vía correctamente');
@@ -116,12 +116,11 @@ class TrackController extends Controller
      */
     public function edit(Track $track)
     {
-        dump($track->id);
         $route = 'edit';
         $yards = Yard::pluck('name', 'id')->toArray();
         $components = ComponentTrack::select('id', 'type_track', 'lenght_tracksleeper_one', 'lenght_tracksleeper_two',
             'type_tracksleeper_one', 'type_tracksleeper_two', 'weight_rails_one', 'lenght_rails_one', 'weight_rails_two', 'lenght_rails_two',
-            'railroadswitch_interior', 'railroadswitch_exterior')
+            /*'railroadswitch_interior', 'railroadswitch_exterior'*/)
             ->wheretrack_id($track->id)
             ->first();
 //        dd($components);
@@ -149,8 +148,8 @@ class TrackController extends Controller
             'lenght_rails_one' => 'required',
             /*'weight_rails_two' => 'required',
             'lenght_rails_two' => 'required',*/
-            'railroadswitch_interior' => 'required',
-            'railroadswitch_exterior' => 'required',
+            /*'railroadswitch_interior' => 'required',
+            'railroadswitch_exterior' => 'required',*/
         ]);
         $track->update([
             'name' => $request->name,
@@ -166,8 +165,8 @@ class TrackController extends Controller
             'lenght_rails_one' => $request->lenght_rails_one,
             'weight_rails_two' => $request->weight_rails_two,
             'lenght_rails_two' => $request->lenght_rails_two,
-            'railroadswitch_interior' => $request->railroadswitch_interior,
-            'railroadswitch_exterior' => $request->railroadswitch_exterior,
+            /*'railroadswitch_interior' => $request->railroadswitch_interior,
+            'railroadswitch_exterior' => $request->railroadswitch_exterior,*/
         ]);
 
         return redirect()->route('menu.tracks.index', $track)->with('info', 'Se actualizó la vía correctamente');

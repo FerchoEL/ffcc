@@ -45,7 +45,7 @@
                 <strong>{{$message}}</strong>
             </small>
             @enderror
-            {{ Form::text('date', $currentDateTime, ['class' => 'form-control','readonly' => false]) }}
+            {{ Form::text('date', $currentDateTime, ['class' => 'form-control','readonly' => true]) }}
         </div>
     </div>
     <div class="row">

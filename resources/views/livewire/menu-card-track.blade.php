@@ -179,7 +179,7 @@
                                 @endif
 
                                 <td width='10px'>
-                                    <button class="btn btn-primary" wire:click="openModal4({{$inspection->id}})"  >Detalle</button>
+                                    <button class="btn btn-primary" wire:click="openModal4({{$inspection->id}})"  >Ver Inspección</button>
                                 </td>
                             </tr>
                         @empty

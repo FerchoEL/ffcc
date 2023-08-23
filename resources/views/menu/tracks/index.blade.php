@@ -83,8 +83,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <label style="margin-left: 12px" for="">Herrajes</label>
-                                            <div style="gap: 30px" class="d-flex justify-content-around">
+                                            {{--<label style="margin-left: 12px" for="">Herrajes</label>--}}
+                                            {{--<div style="gap: 30px" class="d-flex justify-content-around">
                                                 <div style="width: 45%" class="form-group">
                                                     <label for="">Herraje Interior</label>
                                                     <input type="text" name="name" value="{{$components[$track->id]['railroadswitch_interior']}}" disabled class="form-control">
@@ -93,7 +93,7 @@
                                                     <label for="">Herraje Exterior</label>
                                                     <input type="text" name="name" value="{{$components[$track->id]['railroadswitch_exterior']}}" disabled class="form-control">
                                                 </div>
-                                            </div>
+                                            </div>--}}
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             </div>

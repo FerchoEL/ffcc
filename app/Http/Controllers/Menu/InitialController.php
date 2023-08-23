@@ -39,14 +39,14 @@ class InitialController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+
         ]);
         $initial=Initial::create([
             'name' => $request->name,
-            
+
         ]);
 
-        
+
         return redirect()->route('menu.initials.index')->with('info','Se registró la empresa satifactoriamente');
     }
 
@@ -83,14 +83,14 @@ class InitialController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+
         ]);
         $initial->update([
             'name' => $request->name,
-            
+
         ]);
-        
-        return redirect()->route('menu.initials.edit',$initial)->with('info','se actualizó satifactoriamente');
+
+        return redirect()->route('menu.initials.index',$initial)->with('info','se actualizó satifactoriamente');
     }
 
     /**

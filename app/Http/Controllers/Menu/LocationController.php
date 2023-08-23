@@ -92,7 +92,7 @@ class LocationController extends Controller
 
         ]);
 
-        return redirect()->route('menu.locations.edit',$location)->with('info','se actualizó satifactoriamente');
+        return redirect()->route('menu.locations.index',$location)->with('info','se actualizó satifactoriamente');
     }
 
     /**
@@ -101,8 +101,9 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Location $location)
     {
-        //
+        $location->delete();
+        return redirect()->route('menu.locations.index')->with('info','Se eliminó la locación correctamente');
     }
 }

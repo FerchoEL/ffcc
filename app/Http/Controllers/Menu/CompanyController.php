@@ -80,7 +80,7 @@ class CompanyController extends Controller
     public function edit(Company $company)
     {
         $locations=Location::pluck('name','id')->toArray();
-        return view('menu.companies.index',compact('company','locations'));
+        return view('menu.companies.edit',compact('company','locations'));
     }
 
     /**
@@ -103,7 +103,7 @@ class CompanyController extends Controller
             'location_id'=>$request->location_id
         ]);
 
-        return redirect()->route('menu.companies.edit',$company)->with('info','Se actualizó la empresa correctamente');
+        return redirect()->route('menu.companies.index',$company)->with('info','Se actualizó la empresa correctamente');
     }
 
     /**

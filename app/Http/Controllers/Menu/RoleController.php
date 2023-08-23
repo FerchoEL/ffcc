@@ -91,7 +91,7 @@ class RoleController extends Controller
             'name' => $request->name
         ]);
         $role->permissions()->sync($request->permissions);
-        return redirect()->route('menu.roles.edit',$role)->with('info','Se actualizó el rol correctamente');
+        return redirect()->route('menu.roles.index',$role)->with('info','Se actualizó el rol correctamente');
     }
 
     /**
