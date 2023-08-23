@@ -8,7 +8,7 @@
         </span>
     @enderror
 </div>
-<div class="form-group">
+{{--<div class="form-group">
     {!! Form::label('RFC', 'RFC: ') !!}
     {!! Form::text('RFC', null, ['class' => 'form-control'.($errors->has('name') ? ' is-invalid' : ''),'placeholder' => 'Escriba el RFC']) !!}
 
@@ -17,7 +17,7 @@
             <strong>{{$message}}</strong>
         </span>
     @enderror
-</div>
+</div>--}}
 <div class="form-group">
     <strong>Ubicación:</strong>
     @error('locations')

@@ -38,7 +38,7 @@
             <div style="width: 50%" class="form-group">
                 {!! Form::label('tracksleeper', 'Durmientes de vía') !!}
                 {!! Form::select('type_tracksleeper_one', [0=>'Selecciona el tipo de durmiente','Madera'=>'Madera','Concreto'=>'Concreto'], null, ['class' => ' mb-2 form-control']) !!}
-                {!! Form::text('lenght_tracksleeper_one',null, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del durmiente']) !!}
+                {!! Form::text('lenght_tracksleeper_one',null, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la cantidad de durmientes']) !!}
                 @error('type_tracksleeper_one')
                 <span class="invalid-feedback">
             <strong>{{$message}}</strong>
@@ -54,7 +54,7 @@
                 <div style="width: 50%">
                     {!! Form::label('tracksleeper', 'Durmientes de vía') !!}
                     {!! Form::select('type_tracksleeper_two', [0=>'Selecciona el tipo de durmiente','Madera'=>'Madera','Concreto'=>'Concreto'], null, ['class' => ' mb-2 form-control']) !!}
-                    {!! Form::text('lenght_tracksleeper_two',null, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del durmiente']) !!}
+                    {!! Form::text('lenght_tracksleeper_two',null, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la cantidad de durmientes']) !!}
                     @error('type_tracksleeper_one')
                     <span class="invalid-feedback">
                     <strong>{{$message}}</strong>
@@ -80,7 +80,7 @@
             <div style="width: 50%" class="form-group">
                 {!! Form::label('rails', 'Riel') !!}
                 {!! Form::select('weight_rails_one', [0=>'Selecciona el calibre del riel','80'=>'80 lbs/g','100'=>'100 lbs/g','110'=>'110 lbs/g','112'=>'112 lbs/g','115'=>'115 lbs/g','136'=>'136 lbs/g'], null, ['class' => ' mb-2 form-control']) !!}
-                {!! Form::text('lenght_rails_one', null, ['class' => 'form-control'.($errors->has('lenght_rails_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del riel']) !!}
+                {!! Form::text('lenght_rails_one', null, ['class' => 'form-control'.($errors->has('lenght_rails_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud de vías']) !!}
                 @error('weight_rails_one')
                 <span class="invalid-feedback">
             <strong>{{$message}}</strong>
@@ -96,7 +96,7 @@
                 <div style="width: 50%" class="form-group">
                     {!! Form::label('rails', 'Riel') !!}
                     {!! Form::select('weight_rails_two', [0=>'Selecciona el calibre del riel','80'=>'80 lbs/g','100'=>'100 lbs/g','110'=>'110 lbs/g','112'=>'112 lbs/g','115'=>'115 lbs/g','136'=>'136 lbs/g'], null, ['class' => ' mb-2 form-control']) !!}
-                    {!! Form::text('lenght_rails_two', null, ['class' => 'form-control'.($errors->has('lenght_rails_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del riel']) !!}
+                    {!! Form::text('lenght_rails_two', null, ['class' => 'form-control'.($errors->has('lenght_rails_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud de vías']) !!}
                     @error('weight_rails_two')
                     <span class="invalid-feedback">
                     <strong>{{$message}}</strong>
@@ -153,7 +153,7 @@
             <div style="width: 50%" class="form-group">
                 {!! Form::label('tracksleeper', 'Durmientes de vía') !!}
                 {!! Form::select('type_tracksleeper_one', [0=>'Selecciona el tipo de durmiente','Madera'=>'Madera','Concreto'=>'Concreto'], $components->type_tracksleeper_one, ['class' => ' mb-2 form-control']) !!}
-                {!! Form::text('lenght_tracksleeper_one',$components->lenght_tracksleeper_one, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del durmiente']) !!}
+                {!! Form::text('lenght_tracksleeper_one',$components->lenght_tracksleeper_one, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la cantidad de durmientes']) !!}
                 @error('type_tracksleeper_one')
                 <span class="invalid-feedback">
             <strong>{{$message}}</strong>
@@ -169,7 +169,7 @@
                 <div x-show="open">
                     {!! Form::label('tracksleeper', 'Durmientes de vía') !!}
                     {!! Form::select('type_tracksleeper_two', [0=>'Selecciona el tipo de durmiente','Madera'=>'Madera','Concreto'=>'Concreto'], $components->type_tracksleeper_two, ['class' => ' mb-2 form-control']) !!}
-                    {!! Form::text('lenght_tracksleeper_two',$components->lenght_tracksleeper_two, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del durmiente']) !!}
+                    {!! Form::text('lenght_tracksleeper_two',$components->lenght_tracksleeper_two, ['class' => 'form-control'.($errors->has('lenght_tracksleeper_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la cantidad de durmientes']) !!}
                 </div>
                 @error('type_tracksleeper_one')
                 <span class="invalid-feedback">
@@ -193,7 +193,7 @@
             <div style="width: 50%" class="form-group">
                 {!! Form::label('rails', 'Riel 1') !!}
                 {!! Form::select('weight_rails_one', [0=>'Selecciona el calibre del riel','80'=>'80 lbs/g','100'=>'100 lbs/g','110'=>'110 lbs/g','112'=>'112 lbs/g','115'=>'115 lbs/g','136'=>'136 lbs/g'], $components->weight_rails_one, ['class' => ' mb-2 form-control']) !!}
-                {!! Form::text('lenght_rails_one', $components->lenght_rails_one, ['class' => 'form-control'.($errors->has('lenght_rails_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del riel']) !!}
+                {!! Form::text('lenght_rails_one', $components->lenght_rails_one, ['class' => 'form-control'.($errors->has('lenght_rails_one') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud de vías']) !!}
                 @error('weight_rails_one')
                 <span class="invalid-feedback">
                     <strong>{{$message}}</strong>
@@ -209,7 +209,7 @@
                 <div x-show="open">
                 {!! Form::label('rails', 'Riel 2') !!}
                 {!! Form::select('weight_rails_two', [0=>'Selecciona el calibre del riel','80'=>'80 lbs/g','100'=>'100 lbs/g','110'=>'110 lbs/g','112'=>'112 lbs/g','115'=>'115 lbs/g','136'=>'136 lbs/g'], $components->weight_rails_two, ['class' => ' mb-2 form-control']) !!}
-                {!! Form::text('lenght_rails_two', $components->lenght_rails_two, ['class' => 'form-control'.($errors->has('lenght_rails_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud del riel']) !!}
+                {!! Form::text('lenght_rails_two', $components->lenght_rails_two, ['class' => 'form-control'.($errors->has('lenght_rails_two') ? ' is-invalid' : ''),'placeholder' => 'Escriba la longitud de vías']) !!}
                 </div>
                 @error('weight_rails_two')
                 <span class="invalid-feedback">

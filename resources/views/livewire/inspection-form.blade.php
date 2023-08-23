@@ -213,6 +213,7 @@
         <div class="form-group col-12 col-sm-8">
             <div class="image-wrapper">
                 <img id="evidencia" src=" {!! asset('img/kp_tracks.jpg') !!}" >
+
             </div>
         </div>
     </div>

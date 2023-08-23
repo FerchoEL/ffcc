@@ -327,7 +327,8 @@
                                     </div>
                                     <div class="row justify-content-center align-items-center" >
                                         <figure class="ml-lg-5 mr-lg-5">
-                                            <img src="{{ Storage::url($selectedInspection[0]->image->url) }}" alt="Imagen de inspección" class="img-fluid img-max-600">
+                                            <img src="{{ asset(Storage::url($selectedInspection[0]->image->url)) }}" alt="Imagen de inspección" class="img-fluid img-max-600">
+
                                         </figure>
                                     </div>
                                 @endif

@@ -23,7 +23,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Ciudad</th>
+                        {{--<th>Ciudad</th>--}}
                         <th>Ubicación</th>
                         <th>Empresa</th>
                         <th>No. Vías</th>
@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{$yard->id}}</td>
                             <td>{{$yard->name}}</td>
-                            <td>{{$yard->city}}</td>
+                            {{--<td>{{$yard->city}}</td>--}}
                             <td>{{$yard->location->name}}</td>
                             <td>{{$yard->company->name}}</td>
                             <td>{{$yard->tracks_count}}</td>
