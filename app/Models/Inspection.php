@@ -44,7 +44,7 @@ class Inspection extends Model
     }*/
     //Relacion polimortica uno a uno
     public function image(){
-        return $this->morphOne(image::class,'imageable');
+        return $this->morphOne('App\Models\Image','imageable');
     }
 
 }
