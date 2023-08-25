@@ -36,7 +36,7 @@ class InspectionForm extends Component
     public function render()
     {
         $currentDateTime = Carbon::now();
-        dump($currentDateTime);
+
         /*$currentDateTime = $currentDateTime->setTimezone('UTC');*/
 
         $user=User::find(auth()->id());

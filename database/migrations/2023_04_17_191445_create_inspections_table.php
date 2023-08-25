@@ -41,7 +41,7 @@ return new class extends Migration
             $table->unsignedBigInteger('component_catalogs_id')->nullable();
             $table->foreign('component_catalogs_id')->references('id')->on('component_catalogs')->onDelete('SET NULL');
             $table->string('priority');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->unsignedBigInteger('inspection_id')->nullable();
             $table->foreign('inspection_id')->references('id')->on('inspections')->onDelete('SET NULL');
             $table->timestamps();
