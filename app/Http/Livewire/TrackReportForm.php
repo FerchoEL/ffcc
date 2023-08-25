@@ -16,6 +16,7 @@ class TrackReportForm extends Component
     public function render()
     {
         $currentDateTime = Carbon::now();
+
         /*dd($currentDateTime->setTimezone('America/Mexico_City')->format('Y-m-d'));*/
         $currentDateTime = $currentDateTime->setTimezone('America/Mexico_City')->format('Y-m-d');
         $user=User::find(auth()->id());

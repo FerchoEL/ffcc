@@ -97,7 +97,7 @@ class RailroadSwitchController extends Controller
             'yard_id'=>$request->yard_id
         ]);
 
-      return redirect()->route('menu.railroadswitches.edit',$railroadswitch)->with('info','Se actualizó el herraje correctamente');
+      return redirect()->route('menu.railroadswitches.index',$railroadswitch)->with('info','Se actualizó el herraje correctamente');
     }
 
     /**

@@ -112,7 +112,7 @@
         </div>
     </div>
 
-    {!! Form::label('railroadswitch', 'Herrajes') !!}
+{{--    {!! Form::label('railroadswitch', 'Herrajes') !!}
     <div style="gap: 30px" class="d-flex justify-content-around">
         <div style="width: 50%" class="form-group">
             {!! Form::label('railroadswitch_interior', 'Herraje Interior') !!}
@@ -132,7 +132,7 @@
             </span>
             @enderror
         </div>
-    </div>
+    </div>--}}
 @else
     {{--sino, está en la vista edit--}}
     <div class="form-group">
@@ -225,7 +225,7 @@
         </div>
     </div>
 
-    {!! Form::label('railroadswitch', 'Herrajes') !!}
+{{--    {!! Form::label('railroadswitch', 'Herrajes') !!}
     <div style="gap: 30px" class="d-flex justify-content-around">
         <div style="width: 50%" class="form-group">
             {!! Form::label('railroadswitch_interior', 'Herraje Interior') !!}
@@ -245,7 +245,7 @@
             </span>
             @enderror
         </div>
-    </div>
+    </div>--}}
 @endif
 
 

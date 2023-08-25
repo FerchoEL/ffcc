@@ -31,8 +31,8 @@ return new class extends Migration
             $table->string('lenght_rails_one');
             $table->string('weight_rails_two')->nullable();
             $table->string('lenght_rails_two')->nullable();
-            $table->string('railroadswitch_interior');
-            $table->string('railroadswitch_exterior');
+            $table->string('railroadswitch_interior')->nullable();
+            $table->string('railroadswitch_exterior')->nullable();
             $table->unsignedBigInteger('track_id')->nullable()->unique();
             $table->foreign('track_id')->references('id')->on('tracks')->onDelete('cascade');
             $table->timestamps();

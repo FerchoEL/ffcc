@@ -65,7 +65,6 @@ class AssignYardController extends Controller
         $user = User::find($user);
         $useryard = $user->yards;
         $yards=Yard::where('company_id',$user->company_id)->get();
-        dump($useryard,$yards);
         return view('menu.assignyards.edit',compact('user','yards','useryard'));
     }
 

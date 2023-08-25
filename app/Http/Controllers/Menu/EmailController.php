@@ -113,7 +113,7 @@ class EmailController extends Controller
             'yard_id'=> $request->yard_id
         ]);
 
-        return redirect()->route('menu.emails.edit',$email)->with('info','se actualizó satifactoriamente');
+        return redirect()->route('menu.emails.index',$email)->with('info','se actualizó satifactoriamente');
     }
 
     /**
